@@ -1,0 +1,15 @@
+{
+    "Locale": {
+        "en": "English",
+        "tr": "Türkçe",
+        "es": "Español"
+    },
+    "Theme": {
+        "darkMode": "Karanlık Tema",
+        "lightMode": "Aydınlık Tema"
+    },
+    "Common": {
+        "welcome": "Hoş geldin",
+        "goodbye": "Hoşçakal"
+    }
+}

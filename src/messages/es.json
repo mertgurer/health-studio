@@ -1,0 +1,15 @@
+{
+    "Locale": {
+        "en": "English",
+        "tr": "Türkçe",
+        "es": "Español"
+    },
+    "Theme": {
+        "darkMode": "Modo oscuro",
+        "lightMode": "Modo claro"
+    },
+    "Common": {
+        "welcome": "Bienvenido",
+        "goodbye": "Adiós"
+    }
+}
