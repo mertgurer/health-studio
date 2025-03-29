@@ -1,15 +1,23 @@
 {
     "Locale": {
         "en": "English",
-        "tr": "Türkçe",
-        "es": "Español"
-    },
-    "Theme": {
-        "darkMode": "Karanlık Tema",
-        "lightMode": "Aydınlık Tema"
+        "tr": "Türkçe"
     },
     "Common": {
-        "welcome": "Hoş geldin",
-        "goodbye": "Hoşçakal"
+        "welcome": "Ana Sayfa",
+        "about": "Hakkımızda",
+        "services": "Hizmetlerimiz",
+        "contact": "İletişim",
+        "welcomeTitle": "Sağlığa yeni adım"
+    },
+    "Navbar": {
+        "bookAppointment": "Randevu Al",
+        "followUs": "Bizi Takip Edin"
+    },
+    "Welcome": {
+        "title": "Sağlığa Yeni Adım!",
+        "description": "Sağlık ve güvenlik için yeni bir adım atın. Gücünüzü artırabileceğiniz, grup enerjisini hissedebileceğiniz ve sosyalleşebileceğiniz bir ortam yaratmak için buradayız.",
+        "motto": "Sağlığınız ve hareket özgürlüğünüz için buradayız!",
+        "getStarted": "Bizi Tanıyın"
     }
 }

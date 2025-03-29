@@ -9,6 +9,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            minHeight: {
+                "screen-80": "calc(100vh - 80px)",
+            },
             backgroundColor: {
                 background: "var(--background)",
                 primary: "var(--primary)",
@@ -24,6 +27,13 @@ const config: Config = {
                 text: "var(--text)",
             },
             borderColor: {
+                background: "var(--background)",
+                primary: "var(--primary)",
+                secondary: "var(--secondary)",
+                tertiary: "var(--tertiary)",
+                text: "var(--text)",
+            },
+            boxShadowColor: {
                 background: "var(--background)",
                 primary: "var(--primary)",
                 secondary: "var(--secondary)",

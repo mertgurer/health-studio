@@ -1,18 +1,20 @@
-import { Poppins } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import "./globals.css";
-import ThemeLoader from "@/components/themeLoader";
+import Navbar from "@/components/navbar";
+import BackToStart from "@/components/BackToStart";
 
-const poppins = Poppins({
+const montserrat = Montserrat({
     subsets: ["latin"],
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+    style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-    title: "Template Next.js",
-    description: "Starting template for Next.js app",
+    title: "base on.",
+    description: "Fizyoterapi ve egzersiz danışmanınız",
 };
 
 export default async function RootLayout({
@@ -26,10 +28,11 @@ export default async function RootLayout({
 
     return (
         <html lang={locale}>
-            <body className={poppins.className}>
+            <body className={montserrat.className}>
                 <NextIntlClientProvider messages={messages}>
+                    <Navbar />
                     {children}
-                    <ThemeLoader />
+                    <BackToStart />
                 </NextIntlClientProvider>
             </body>
         </html>
