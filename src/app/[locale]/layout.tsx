@@ -4,7 +4,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import "./globals.css";
 import Navbar from "@/components/navbar";
-import BackToStart from "@/components/ToBackToStart";
+import BackToStart from "@/components/BackToStart";
+import logo from "../../../public/assets/images/logo.png";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -15,6 +16,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
     title: "base on.",
     description: "Fizyoterapi ve egzersiz danışmanınız",
+    icons: {
+        icon: logo.src,
+    },
 };
 
 export default async function RootLayout({

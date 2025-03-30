@@ -19,13 +19,13 @@ function Welcome() {
         >
             <motion.div
                 initial={{
-                    transform: "translateX(-10%)",
+                    transform: "translateX(-8%)",
                 }}
                 whileInView={{
                     transform: "translateX(0%)",
                 }}
                 transition={{
-                    transform: { duration: 1.5, ease: "easeOut" },
+                    transform: { duration: 1.8, ease: "easeOut" },
                 }}
                 viewport={{ once: true }}
                 className="absolute -left-[15%] w-2/3 h-[85vh] mt-[5vh] -z-10 rounded-r-full overflow-hidden bg-background"
@@ -41,7 +41,7 @@ function Welcome() {
             </motion.div>
             <motion.div
                 initial={{
-                    transform: "translateX(5%)",
+                    transform: "translateX(3%)",
                 }}
                 whileInView={{
                     transform: "translateX(0%)",
@@ -51,7 +51,7 @@ function Welcome() {
                 }}
                 style={{
                     backgroundColor:
-                        "color-mix(in srgb, var(--background), transparent 3%)",
+                        "color-mix(in srgb, var(--secondary), transparent 5%)",
                 }}
                 viewport={{ once: true }}
                 className="flex flex-col py-[3%] px-[4%] w-[48%] h-[50vh] ml-[20%] mb-[10vh] rounded-sm rounded-l-full shadow-[inset_0_0_32px_-12px_rgba(0,0,0,0.3)] gap-5"
@@ -105,7 +105,7 @@ function Welcome() {
                     - {t("motto")} -
                 </motion.p>
                 <button
-                    className="flex items-center gap-2 rounded-sm self-end mt-auto text-lg font-medium px-5 py-2 bg-secondary"
+                    className="flex items-center gap-2 rounded-sm self-end mt-auto text-lg font-medium px-5 py-2 bg-primary"
                     onClick={() => {
                         document.getElementById("about")?.scrollIntoView({
                             behavior: "smooth",
