@@ -16,8 +16,18 @@
     },
     "Welcome": {
         "title": "Sağlığa Yeni Adım!",
-        "description": "Sağlık ve güvenlik için yeni bir adım atın. Gücünüzü artırabileceğiniz, grup enerjisini hissedebileceğiniz ve sosyalleşebileceğiniz bir ortam yaratmak için buradayız.",
+        "description": "Sağlık ve güvenlik için yeni bir adım atın. Gücünüzü artırabileceğiniz ve sosyalleşebileceğiniz bir ortam yaratmak için buradayız.",
         "motto": "Sağlığınız ve hareket özgürlüğünüz için buradayız!",
         "getStarted": "Bizi Tanıyın"
+    },
+    "About": {
+        "title": "Hakkımızda",
+        "p1": "BASE ON, fizyoterapi ve egzersiz alanında uzman ekibimizle, bireysel ihtiyaçlara yönelik özel tedavi ve egzersiz programları sunan bir merkezdir. Manuel terapi, ortopedik rehabilitasyon, sporcu rehabilitasyonu, spora dönüş, omurga sağlığı, postür eğitimi ve klinik pilates programlarıyla vücudunuzu en iyi şekilde desteklemeyi hedefliyoruz.",
+        "p2": "Amacımız, bilimsel ve kanıta dayalı fizyoterapi yöntemleriyle danışanlarımızın yaşam kalitesini artırmak ve onlara sürdürülebilir sağlık çözümleri sunmaktır. Kişiye özel planladığımız terapi ve egzersiz programlarımızla, ağrılarınızı yönetmek, sakatlıkları önlemek ve daha güçlü bir vücuda sahip olmanızı sağlamak için çalışıyoruz.",
+        "p3": "Samimi bir ortamda, profesyonel bir yaklaşımla sağlığınıza BASE ON dokunuşunu katıyoruz!",
+        "p4": "Siz de hareketin özgürlüğünü keşfetmek için bizimle tanışın.",
+        "ourExperts": "Uzmanlarımız",
+        "gulceInfo": "Lisans eğitimini Yeditepe Üniversitesi Fizyoterapi ve Rehabilitasyon Bölümü'nde tamamlamıştır. Mezuniyetinin ardından Yeditepe Üniversitesi Fizyoterapi ve Rehabilitasyon Yüksek Lisans Programı’na başlamış ve bel ağrılı hastalar üzerine gerçekleştirdiği tez çalışmasıyla 2024 yılında uzmanlığını tamamlamıştır. Mobilizasyon teknikleri, manuel terapi teknikleri, klinik pilates, sporcu rehabilitasyonu gibi alanlarda mesleki eğitimler almış ve bu becerilerini klinik pratiğinde uygulamıştır. Edindiği bilgi ve deneyimleri daha geniş bir kitleyle buluşturmak ve profesyonel bir hizmet sunmak amacıyla BASE ON’un kurucu ortaklarından biri olmuştur. Burada, manuel terapi, ortopedik rehabilitasyon, sporcu rehabilitasyonu, spora dönüş, omurga sağlığı ve klinik pilates gibi birçok alanda bütüncül bir yaklaşımla hizmet sunmaya devam etmektedir.",
+        "tugceInfo": "Lisans eğitimini Bahçeşehir Üniversitesi Fizik Tedavi ve Rehabilitasyon Bölümü’nde tamamlamıştır. Fizyoterapi lisans eğitiminin bir kısmını Almanya’da PhysioCum Laude’de tamamlamıştır. Almanya’da manuel terapi, lenf drenaj, nörolojik yaklaşımlar üzerine eğitimler almıştır. Ardından Bahçeşehir Üniversitesi Kayropraktik Bölümü’ne başlamış, almış olduğu eğitim ve becerilerini klinik pratiğinde başarıyla uygulamıştır. Omurga sağlığı, ortopedik rehabilitasyon, sporcu rehabilitasyonu gibi alanlarda çalışarak geniş bir pratik bilgiye sahip olmuştur. Elde ettiği uzmanlıkla, daha geniş bir kitleye profesyonel sağlık hizmeti sunmayı hedefleyerek BASE ON’un kurucu ortaklarından biri olmuştur. Burada, manuel terapi, ortopedik rehabilitasyon, sporcu rehabilitasyonu, spora geri dönüş, omurga sağlığı, klinik pilates gibi çeşitli alanlarda kapsamlı bir tedavi yaklaşımı sunmaktadır."
     }
 }

@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import "./globals.css";
 import Navbar from "@/components/navbar";
-import BackToStart from "@/components/BackToStart";
+import BackToStart from "@/components/ToBackToStart";
 
 const montserrat = Montserrat({
     subsets: ["latin"],

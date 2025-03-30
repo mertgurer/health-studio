@@ -27,6 +27,7 @@ function Welcome() {
                 transition={{
                     transform: { duration: 1.5, ease: "easeOut" },
                 }}
+                viewport={{ once: true }}
                 className="absolute -left-[15%] w-2/3 h-[85vh] mt-[5vh] -z-10 rounded-r-full overflow-hidden bg-background"
             >
                 <Image
@@ -36,14 +37,23 @@ function Welcome() {
                     priority
                     sizes="100%"
                     className="object-cover"
-                    quality={100}
                 />
             </motion.div>
-            <div
+            <motion.div
+                initial={{
+                    transform: "translateX(5%)",
+                }}
+                whileInView={{
+                    transform: "translateX(0%)",
+                }}
+                transition={{
+                    transform: { duration: 1.5, delay: 0.1, ease: "easeOut" },
+                }}
                 style={{
                     backgroundColor:
-                        "color-mix(in srgb, var(--background), transparent 0%)",
+                        "color-mix(in srgb, var(--background), transparent 3%)",
                 }}
+                viewport={{ once: true }}
                 className="flex flex-col py-[3%] px-[4%] w-[48%] h-[50vh] ml-[20%] mb-[10vh] rounded-sm rounded-l-full shadow-[inset_0_0_32px_-12px_rgba(0,0,0,0.3)] gap-5"
             >
                 <motion.h1
@@ -58,7 +68,7 @@ function Welcome() {
                         filter: "blur(0px)",
                     }}
                     transition={{ duration: 1 }}
-                    className="text-5xl font-semibold self-end mb-2"
+                    className="text-5xl font-semibold self-end mb-2 italic"
                 >
                     {t("title")}
                 </motion.h1>
@@ -90,12 +100,12 @@ function Welcome() {
                         filter: "blur(0px)",
                     }}
                     transition={{ duration: 1, delay: 0.4 }}
-                    className="text-lg italic self-end text-end ml-[15%]"
+                    className="text-lg italic self-end text-end ml-[15%] mt-[3%]"
                 >
                     - {t("motto")} -
                 </motion.p>
                 <button
-                    className="flex items-center gap-2 rounded-sm self-end mt-auto text-lg font-medium px-4 py-2 bg-secondary"
+                    className="flex items-center gap-2 rounded-sm self-end mt-auto text-lg font-medium px-5 py-2 bg-secondary"
                     onClick={() => {
                         document.getElementById("about")?.scrollIntoView({
                             behavior: "smooth",
@@ -109,7 +119,7 @@ function Welcome() {
                         strokeWidth={1.5}
                     />
                 </button>
-            </div>
+            </motion.div>
         </section>
     );
 }

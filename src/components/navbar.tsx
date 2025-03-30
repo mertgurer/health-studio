@@ -105,7 +105,7 @@ function Navbar() {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-1 border border-tertiary bg-background rounded-full shadow-md duration-500 relative group/tooltip hover:border-secondary"
+                                        className="p-1 border border-text bg-background rounded-full shadow-md duration-500 relative group/tooltip hover:border-secondary"
                                         style={{
                                             zIndex: Socials.length - index,
                                             transform: `translateX(${
@@ -131,7 +131,7 @@ function Navbar() {
                     </div>
                     <Link
                         href="/"
-                        className="border-tertiary border-2 rounded-sm relative px-4 py-2 overflow-hidden font-medium hover:border-secondary hover:scale-95 duration-500
+                        className="border-text border-2 rounded-sm relative px-4 py-2 overflow-hidden font-medium hover:border-secondary hover:scale-95 duration-500
                         before:absolute before:inset-0 before:w-0 before:bg-secondary before:-z-10 before:transition-all before:duration-500 before:ease-in-out hover:before:w-full"
                     >
                         {t("Navbar.bookAppointment")}
@@ -203,10 +203,13 @@ function Navbar() {
                                                     behavior: "smooth",
                                                 });
                                         }}
-                                        className="p-2 hover:text-secondary transition-colors duration-200 opacity-100 hover:opacity-100 hover:[&~button]:opacity-60 hover:[&+button]:opacity-60"
+                                        className="p-2 rounded-lg hover:text-secondary hover:bg-background transition-colors duration-200 group"
                                     >
-                                        <p className="font-medium">
-                                            {t(`Common.${item}`)}
+                                        <p className="font-medium relative">
+                                            <span className="relative ">
+                                                {t(`Common.${item}`)}
+                                                <span className="absolute -bottom-1 left-1/2 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-300 -translate-x-1/2" />
+                                            </span>
                                         </p>
                                     </button>
                                 ))}
