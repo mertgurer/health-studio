@@ -133,7 +133,7 @@ function About() {
                                 Gülce Şevval Bağcıbaşı
                             </h2>
                             <p className="font-medium opacity-50 ml-2">
-                                Uzman Fizyoterapist - Kurucu Ortak
+                                {t("gulceTitle")}
                             </p>
                             <p className="text-sm text-balance mt-2">
                                 {t("gulceInfo")}
@@ -154,7 +154,7 @@ function About() {
                                 Tuğçe Yurdakul
                             </h2>
                             <p className="font-medium opacity-50 mr-2">
-                                Fizyoterapist - Kurucu Ortak
+                                {t("tugceTitle")}
                             </p>
                             <p className="text-sm text-start text-balance mt-2">
                                 {t("tugceInfo")}

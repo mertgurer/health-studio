@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import "./globals.css";
 import Navbar from "@/components/navbar";
-import BackToStart from "@/components/BackToStart";
+import BackToTop from "@/components/backToTop";
 import logo from "../../../public/assets/images/logo.png";
 
 const montserrat = Montserrat({
@@ -36,7 +36,7 @@ export default async function RootLayout({
                 <NextIntlClientProvider messages={messages}>
                     <Navbar />
                     {children}
-                    <BackToStart />
+                    <BackToTop />
                 </NextIntlClientProvider>
             </body>
         </html>

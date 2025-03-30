@@ -4,7 +4,7 @@ import { ArrowUp05Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import React from "react";
 
-function BackToStart() {
+function BackToTop() {
     const [isVisible, setIsVisible] = React.useState(false);
 
     React.useEffect(() => {
@@ -42,4 +42,4 @@ function BackToStart() {
     );
 }
 
-export default BackToStart;
+export default BackToTop;
