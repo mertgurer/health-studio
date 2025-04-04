@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { IconSvgElement } from "@hugeicons/react";
 import {
     Clapping01Icon,
     Yoga03Icon,
@@ -26,7 +26,7 @@ export interface ServiceData {
     info: string;
     description: string;
     image: StaticImageData;
-    icon?: ReactElement;
+    icon: IconSvgElement;
 }
 
 export const services: ServiceData[] = [
@@ -35,77 +35,55 @@ export const services: ServiceData[] = [
         info: "Services.ManuelTherapy.info",
         description: "Services.ManuelTherapy.description",
         image: ManuelTherapyImage,
-        icon: (
-            <HugeiconsIcon icon={Clapping01Icon} size={36} strokeWidth={1.5} />
-        ),
+        icon: Clapping01Icon,
     },
     {
         title: "Services.ClinicalPilates.title",
         info: "Services.ClinicalPilates.info",
         description: "Services.ClinicalPilates.description",
         image: ClinicalPilatesImage,
-        icon: <HugeiconsIcon icon={YogaMatIcon} size={36} strokeWidth={1.5} />,
+        icon: YogaMatIcon,
     },
     {
         title: "Services.OrthopedicRehabilitation.title",
         info: "Services.OrthopedicRehabilitation.info",
         description: "Services.OrthopedicRehabilitation.description",
         image: OrthopedicRehabilitationImage,
-        icon: <HugeiconsIcon icon={Yoga03Icon} size={36} strokeWidth={1.5} />,
+        icon: Yoga03Icon,
     },
     {
         title: "Services.AthleteRehabilitation.title",
         info: "Services.AthleteRehabilitation.info",
         description: "Services.AthleteRehabilitation.description",
         image: AthleteRehabilitationImage,
-        icon: (
-            <HugeiconsIcon icon={Bicycle01Icon} size={36} strokeWidth={1.5} />
-        ),
+        icon: Bicycle01Icon,
     },
     {
         title: "Services.PersonalExercise.title",
         info: "Services.PersonalExercise.info",
         description: "Services.PersonalExercise.description",
         image: PersonalExerciseImage,
-        icon: (
-            <HugeiconsIcon
-                icon={WorkoutWarmUpIcon}
-                size={36}
-                strokeWidth={1.5}
-            />
-        ),
+        icon: WorkoutWarmUpIcon,
     },
     {
         title: "Services.ReturnToSports.title",
         info: "Services.ReturnToSports.info",
         description: "Services.ReturnToSports.description",
         image: ReturnToSportsImage,
-        icon: (
-            <HugeiconsIcon
-                icon={WorkoutSquatsIcon}
-                size={36}
-                strokeWidth={1.5}
-            />
-        ),
+        icon: WorkoutSquatsIcon,
     },
     {
         title: "Services.PostureAnalysis.title",
         info: "Services.PostureAnalysis.info",
         description: "Services.PostureAnalysis.description",
         image: PostureAnalysisImage,
-        icon: (
-            <HugeiconsIcon
-                icon={MarketAnalysisIcon}
-                size={36}
-                strokeWidth={1.5}
-            />
-        ),
+        icon: MarketAnalysisIcon,
     },
     {
         title: "Services.Recovery.title",
         info: "Services.Recovery.info",
         description: "Services.Recovery.description",
         image: RecoveryImage,
-        icon: <HugeiconsIcon icon={HealthIcon} size={36} strokeWidth={1.5} />,
+        icon: HealthIcon,
     },
 ];

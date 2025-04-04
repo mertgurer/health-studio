@@ -14,19 +14,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import React, { FormEvent, useState } from "react";
 import FormInput from "../formTextInput";
-import { emailRegex } from "@/constants/constants";
-
-const secondsInDay = 86400000;
-
-const days = [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday",
-];
+import { days, emailRegex, secondsInDay } from "@/constants/constants";
+import { useScreenSize } from "@/hooks/useScreenSize";
 
 interface Props {
     todayValue: Date;
@@ -47,6 +36,7 @@ function BookAppointment({
     reservations,
 }: Props) {
     const t = useTranslations();
+    const { isMobile } = useScreenSize();
 
     const [isExpanded, setIsExpanded] = useState(false);
     const [selectedTime, setSelectedTime] = useState<{
@@ -99,9 +89,9 @@ function BookAppointment({
     return (
         <section
             id="appointment"
-            className="flex flex-col items-center w-full px-[10%] py-16 bg-secondary -mt-10 max-2xl:px-[5%]"
+            className="relative flex flex-col items-center w-full px-[10%] py-16 bg-secondary -mt-10 max-2xl:px-[5%] max-md:-mt-0 max-md:py-8 max-md:overflow-hidden"
         >
-            <div className="flex justify-between items-end w-full px-10 overflow-hidden max-2xl:px-0">
+            <div className="flex justify-between items-end w-full px-10 overflow-hidden max-2xl:px-0 max-md:flex-col-reverse max-md:items-center">
                 <div className="flex items-center h-min gap-7 max-2xl:gap-2 max-2xl:ml-[3%]">
                     <button
                         onClick={() => changeWeek("prev")}
@@ -163,21 +153,21 @@ function BookAppointment({
                         />
                     </button>
                 </div>
-                <div className="flex flex-col justify-center items-center text-center mb-8 -mr-[10%]">
+                <div className="flex flex-col justify-center items-center text-center mb-8 -mr-[10%] max-md:mr-0 max-md:mb-4">
                     <h1 className="max-2xl:text-sm">
                         - {t("Appointment.subtitle")} -
                     </h1>
                     <h2 className="text-4xl font-semibold italic max-2xl:text-3xl">
                         {t("Appointment.title")}
                     </h2>
-                    <p className="text-sm text-balance w-2/3 mt-3 opacity-80 max-2xl:text-xs">
+                    <p className="text-sm text-balance w-2/3 mt-3 opacity-80 max-2xl:text-xs max-md:w-full">
                         {t("Appointment.info")}
                     </p>
                 </div>
             </div>
 
-            <div className="flex flex-col w-full items-center">
-                <div className="grid grid-cols-7 gap-[2px] p-[2px] w-full mt-7">
+            <div className="flex flex-col w-full items-center max-md:overflow-auto max-md:items-start">
+                <div className="grid grid-cols-7 gap-[2px] p-[2px] w-full mt-7 max-md:flex">
                     {days.map((x, index) => {
                         const day = new Date(
                             weekStart.getTime() + index * secondsInDay
@@ -189,7 +179,7 @@ function BookAppointment({
                         return (
                             <div
                                 key={index}
-                                className={`flex items-center justify-center font-medium gap-5`}
+                                className={`flex items-center justify-center font-medium gap-5 max-md:min-w-[120px] max-md:flex-shrink-0`}
                             >
                                 {isToday && (
                                     <div className="w-4 h-[2px] bg-primary" />
@@ -206,16 +196,20 @@ function BookAppointment({
                     })}
                 </div>
                 <motion.div
-                    className="relative w-full bg-secondary overflow-hidden"
+                    className="w-full bg-secondary overflow-hidden max-md:w-[852px] max-md:pb-2"
                     initial={{
-                        height: "23vw",
+                        height: !isMobile ? "23vw" : "50vw",
                     }}
                     animate={{
-                        height: isExpanded ? "auto" : "23vw",
+                        height: isExpanded
+                            ? "auto"
+                            : !isMobile
+                            ? "23vw"
+                            : "50vw",
                     }}
                     transition={{ duration: 0.7 }}
                 >
-                    <div className="grid grid-cols-7 gap-[2px] p-[2px]">
+                    <div className="grid grid-cols-7 gap-[2px] p-[2px] max-md:flex-wrap max-md:w-[852px]">
                         {Array.from({ length: 7 }).map((_, timeIndex) =>
                             Array.from({ length: 7 }).map((_, dayIndex) => {
                                 const startHour = 10 + timeIndex;
@@ -242,15 +236,15 @@ function BookAppointment({
                                 return (
                                     <div
                                         key={`${dayIndex}-${timeIndex}`}
-                                        className="relative w-full aspect-[2.2] flex flex-col items-center justify-center text-sm bg-primary"
+                                        className="relative w-full aspect-[2.2] flex flex-col items-center justify-center text-sm bg-primary max-md:min-w-[120px] max-md:flex-shrink-0"
                                     >
-                                        <span className="absolute top-3 left-3 italic text-xs text-secondary">
+                                        <span className="absolute top-3 left-3 italic text-xs text-secondary max-md:top-1 max-md:left-1">
                                             {startTime} - {endTime}
                                         </span>
                                         {!isPast &&
                                             (!isReserved ? (
                                                 <button
-                                                    className="flex items-center gap-2 px-3 py-1 bg-secondary mt-6 rounded-sm max-2xl:text-xs"
+                                                    className="flex items-center gap-2 px-3 py-1 bg-secondary mt-6 rounded-sm max-2xl:text-xs max-md:mt-4 max-md:px-2"
                                                     onClick={() => {
                                                         const date = new Date(
                                                             weekStart.getTime() +
@@ -277,7 +271,7 @@ function BookAppointment({
                                                     {t("Common.reserve")}
                                                 </button>
                                             ) : (
-                                                <p className="opacity-70 mt-6 max-2xl:text-xs">
+                                                <p className="opacity-70 mt-6 max-2xl:text-xs max-md:mt-4">
                                                     {t("Common.unavailable")}
                                                 </p>
                                             ))}
@@ -289,20 +283,22 @@ function BookAppointment({
                             })
                         )}
                     </div>
+                    {!isMobile && (
+                        <button
+                            onClick={() => setIsExpanded(false)}
+                            className="w-full bg-secondary p-2 flex justify-center"
+                        >
+                            <HugeiconsIcon
+                                icon={ArrowUp01Icon}
+                                size={36}
+                                strokeWidth={1.5}
+                                color="#000000"
+                            />
+                        </button>
+                    )}
                     <button
-                        onClick={() => setIsExpanded(false)}
-                        className="w-full bg-secondary p-2 flex justify-center"
-                    >
-                        <HugeiconsIcon
-                            icon={ArrowUp01Icon}
-                            size={36}
-                            strokeWidth={1.5}
-                            color="#000000"
-                        />
-                    </button>
-                    <button
-                        onClick={() => setIsExpanded(true)}
-                        className={`absolute bottom-0 left-0 flex justify-center w-full pt-10 bg-gradient-to-t from-secondary to-transparent duration-500 z-10 ${
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className={`absolute bottom-0 left-0 flex justify-center w-full pt-10 mb-16 bg-gradient-to-t from-secondary to-transparent duration-500 z-10 max-md:mb-8 max-md:mx-[5vw] max-md:w-[90vw] ${
                             isExpanded
                                 ? "opacity-0 pointer-events-none"
                                 : "opacity-100"
@@ -339,11 +335,11 @@ function BookAppointment({
                         onClick={() => setSelectedTime(null)}
                     >
                         <div
-                            className="relative flex items-center justify-center bg-primary rounded-sm shadow-lg p-14 cursor-default"
+                            className="relative flex items-center justify-center bg-primary rounded-sm shadow-lg p-14 cursor-default max-md:px-10 max-md:w-[90%]"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <div className="flex flex-col items-center w-full">
-                                <div className="flex items-center text-2xl font-medium mb-3 self-start max-2xl:text-xl">
+                                <div className="flex items-center text-2xl font-medium mb-3 self-start max-2xl:text-xl max-md">
                                     <HugeiconsIcon
                                         icon={Appointment01Icon}
                                         size={24}
@@ -384,12 +380,12 @@ function BookAppointment({
                                         {selectedTime.endTime}
                                     </span>
                                 </div>
-                                <div className="flex flex-col mt-10">
+                                <div className="flex flex-col mt-10 max-md:w-full">
                                     <form
-                                        className="flex flex-col items-center gap-4"
+                                        className="flex flex-col items-center gap-4 max-md:w-full"
                                         onSubmit={createReservation}
                                     >
-                                        <div className="flex gap-4">
+                                        <div className="flex gap-4 max-md:flex-col max-md:w-full">
                                             <FormInput
                                                 label={"Common.name"}
                                                 name={"customerName"}

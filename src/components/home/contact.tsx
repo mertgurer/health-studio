@@ -40,9 +40,9 @@ function Contact() {
     return (
         <section
             id="contact"
-            className="flex  w-full py-[7%] px-[14%] gap-[8%]"
+            className="flex w-full py-[7%] px-[14%] gap-[8%] max-md:flex-col max-md:text-center max-md:px-[10%] max-md:py-[10%]"
         >
-            <div className="flex flex-col w-1/2 items-center">
+            <div className="flex flex-col w-1/2 items-center max-md:w-full">
                 <div className="flex flex-col justify-center items-center">
                     <h1 className="max-2xl:text-sm">
                         - {t("Contact.subtitle")} -
@@ -80,7 +80,7 @@ function Contact() {
                 <p className="text-center text-balance mt-2 mb-10 opacity-80 max-2xl:text-sm">
                     {t("Contact.contactText")}
                 </p>
-                <div className="flex items-center gap-2 mt-7 my-1 max-2xl:text-sm">
+                <div className="flex items-center gap-2 mt-7 my-1 max-2xl:text-sm max-md:mt-0">
                     <HugeiconsIcon
                         icon={TelephoneIcon}
                         size={24}
@@ -99,13 +99,13 @@ function Contact() {
                     <span>support@baseon.com</span>
                 </div>
 
-                <div className="flex flex-col items-center mt-4 my-1 max-2xl:text-sm">
+                <div className="flex flex-col items-center mt-4 my-1 whitespace-nowrap max-2xl:text-sm">
                     <p>Mehmet Akif Mahallesi, Güzel Sk. No: 12, Daire: 5</p>
                     <p>Kadıköy, İstanbul, 34730</p>
                 </div>
             </div>
-            <div className="flex flex-col items-end pl-[4%] w-1/2">
-                <h2 className="text-2xl font-light italic mb-8 max-2xl:text-xl">
+            <div className="flex flex-col items-end pl-[4%] w-1/2 max-md:w-full max-md:mt-16 max-md:pl-0">
+                <h2 className="text-2xl font-light italic mb-8 max-2xl:text-xl max-md:self-center">
                     {t("Contact.contactInfo")}
                 </h2>
                 <form

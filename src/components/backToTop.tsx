@@ -24,9 +24,9 @@ function BackToTop() {
 
     return (
         <div
-            className={`fixed bottom-8 right-12 transition-opacity duration-300 ${
+            className={`fixed bottom-8 right-12 transition-opacity duration-300 z-30 ${
                 isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
+            } max-md:right-4 max-md:bottom-4`}
         >
             <button
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

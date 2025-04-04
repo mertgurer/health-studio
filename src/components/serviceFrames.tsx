@@ -26,7 +26,7 @@ function ServiceFrames({ data, index, inverse, setSelectedService }: Props) {
 
     return (
         <div
-            className={`flex w-[24.025%] flex-shrink-0 gap-[0.9vw] max-2xl:w-[32.46%] ${
+            className={`flex w-[24.025%] flex-shrink-0 gap-[0.9vw] max-2xl:w-[32.46%] max-md:w-[70%] ${
                 inverse ? "flex-col-reverse" : "flex-col"
             }`}
         >
@@ -41,18 +41,23 @@ function ServiceFrames({ data, index, inverse, setSelectedService }: Props) {
                 />
             </div>
             <button
-                className={`group flex flex-col items-start w-full aspect-square p-8 ${
+                className={`group flex flex-col items-start w-full aspect-square p-8 rounded-sm ${
                     colors[index % 4]
-                } rounded-sm`}
+                } max-md:p-5`}
                 onClick={() => setSelectedService(data)}
             >
-                <div className="ml-3 mb-3 group-hover:scale-110 group-hover:mb-4 duration-300">
-                    {data.icon}
+                <div className="ml-3 mb-3 group-hover:scale-110 group-hover:mb-4 duration-300 max-2xl:scale-90 max-md:mb-1">
+                    <HugeiconsIcon
+                        icon={data.icon}
+                        size={36}
+                        strokeWidth={1.5}
+                        className="max-2xl:size-8 max-md:size-7"
+                    />
                 </div>
                 <h2 className="text-2xl text-start text-balance font-semibold italic max-2xl:text-xl">
                     {t(data.title)}
                 </h2>
-                <p className="mt-4 text-start max-2xl:text-sm">
+                <p className="mt-4 text-start max-2xl:text-sm max-md:mt-2">
                     {t(data.info)}
                 </p>
                 <div className="flex flex-col items-start mt-auto gap-1">

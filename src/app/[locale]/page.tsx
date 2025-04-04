@@ -22,7 +22,7 @@ export default function Home() {
             <Welcome />
             <About />
             <Services />
-            <div className="relative w-full h-[200px] overflow-hidden rotate-180 bg-secondary">
+            <div className="relative w-full h-[200px] overflow-hidden rotate-180 bg-secondary max-md:h-[50px]">
                 <Image
                     src={Split}
                     alt="Decorative split"
