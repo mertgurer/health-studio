@@ -5,7 +5,7 @@ import React from "react";
 import logo from "../../public/assets/images/logo_text.png";
 import LocaleButton from "./localeButton";
 import TurkishFlag from "../../public/assets/images/turkey.png";
-import EnglishFlag from "../../public/assets/images/ENGLISH.png";
+import EnglishFlag from "../../public/assets/images/english.png";
 
 function Footer() {
     return (
