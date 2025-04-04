@@ -40,9 +40,9 @@ function About() {
             id="about"
             className="flex flex-col items-center justify-center bg-secondary py-[10vh] gap-[12vh]"
         >
-            <div className="relative flex items-center justify-center px-[5%] gap-10">
-                <div className="flex flex-col rounded-sm py-10 px-12 w-1/2 gap-3 z-10">
-                    <h2 className="text-4xl font-semibold italic ml-2">
+            <div className="relative flex items-center justify-center gap-10 px-[5%] max-2xl:px-0">
+                <div className="flex flex-col rounded-sm py-10 px-12 gap-3 z-10 w-1/2 max-2xl:w-2/3">
+                    <h2 className="font-semibold italic ml-2 text-4xl max-2xl:text-3xl">
                         {t("title")}
                     </h2>
                     <p>{t("p1")}</p>
@@ -85,15 +85,15 @@ function About() {
                     </div>
                 </div>
             </div>
-            <div className="h-[2px] w-1/4 bg-background" />
+            <div className="h-[2px] bg-background w-1/4 max-2xl:w-1/3" />
             <div className="flex flex-col items-center justify-center w-full gap-10">
                 <div className="flex flex-col justify-center items-center">
-                    <h1>- {t("subtitle")} -</h1>
-                    <h2 className="text-4xl font-semibold italic">
+                    <h1 className="max-2xl:text-sm">- {t("subtitle")} -</h1>
+                    <h2 className="font-semibold italic text-4xl max-2xl:text-3xl">
                         {t("ourExperts")}
                     </h2>
                 </div>
-                <div className="flex items-center justify-center w-full">
+                <div className="flex items-center justify-center w-full max-2xl:items-start">
                     <motion.div
                         initial={{ y: "-5%", opacity: 0, x: "20%" }}
                         whileInView={{ y: 0, opacity: 1 }}
@@ -107,7 +107,7 @@ function About() {
                                 delay: 0,
                             },
                         }}
-                        className="relative w-1/5 aspect-[3/4] rounded-sm overflow-hidden"
+                        className="relative w-1/5 aspect-[3/4] rounded-sm overflow-hidden max-2xl:w-1/4 max-2xl:mt-10"
                     >
                         <Image
                             src={gulce}
@@ -117,7 +117,7 @@ function About() {
                             className="object-cover scale-125"
                         />
                     </motion.div>
-                    <div className="flex flex-col items-center justify-center gap-4 w-[45%] z-10">
+                    <div className="flex flex-col items-center justify-center gap-4 w-[45%] z-10 max-2xl:w-2/4">
                         <motion.div
                             style={{
                                 backgroundColor:
@@ -142,8 +142,8 @@ function About() {
                         <motion.div
                             style={{
                                 backgroundColor:
-                                    "color-mix(in srgb, var(--primary), transparent 20%)",
-                                backdropFilter: "blur(5px)",
+                                    "color-mix(in srgb, var(--primary), transparent 16%)",
+                                backdropFilter: "blur(12px)",
                             }}
                             initial={{ y: "-4%", x: "-2%", opacity: 0 }}
                             whileInView={{ y: 0, x: 0, opacity: 1 }}
@@ -175,7 +175,7 @@ function About() {
                                 delay: 0,
                             },
                         }}
-                        className="relative w-1/5 aspect-[3/4] rounded-sm overflow-hidden"
+                        className="relative w-1/5 aspect-[3/4] rounded-sm overflow-hidden max-2xl:self-end max-2xl:w-1/4 max-2xl:mb-10"
                     >
                         <Image
                             src={tugce}

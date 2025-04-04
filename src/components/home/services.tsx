@@ -11,6 +11,7 @@ import {
     ArrowRight01Icon,
     Cancel01Icon,
 } from "@hugeicons/core-free-icons";
+import { ScreenSize } from "@/hooks/useScreenSize";
 
 function Services() {
     const t = useTranslations();
@@ -19,12 +20,21 @@ function Services() {
     const [selectedService, setSelectedService] = useState<ServiceData | null>(
         null
     );
+    const [windowWidth, setWindowWidth] = useState(0);
     const controls = useDragControls();
 
     useEffect(() => {
         const updateWidth = () => {
-            const width = window.innerWidth * 0.76 * 1.005;
+            var width = 0;
+
+            if (window.innerWidth > ScreenSize.XXL) {
+                width = window.innerWidth * 0.76 * 1.005;
+            } else if (window.innerWidth <= ScreenSize.XXL) {
+                width = window.innerWidth * 0.76 * (5 / 3) * 1.012;
+            }
+
             setMaxScrollWidth(width);
+            setWindowWidth(window.innerWidth);
         };
 
         updateWidth();
@@ -38,11 +48,13 @@ function Services() {
     return (
         <section
             id="services"
-            className="flex flex-col items-center justify-center gap-16 py-[6%]"
+            className="flex flex-col items-center justify-center gap-16 pt-[6%] pb-16 max-2xl:pb-0"
         >
             <div className="flex flex-col justify-center items-center">
-                <h1>- {t("Services.subtitle")} -</h1>
-                <h2 className="text-4xl font-semibold italic">
+                <h1 className="max-2xl:text-sm">
+                    - {t("Services.subtitle")} -
+                </h1>
+                <h2 className="text-4xl font-semibold italic max-2xl:text-3xl">
                     {t("Services.title")}
                 </h2>
             </div>
@@ -74,7 +86,10 @@ function Services() {
                             x: 0,
                         }}
                         animate={{
-                            x: `-${currentIndex * 25.325}%`,
+                            x: `-${
+                                currentIndex *
+                                (windowWidth > ScreenSize.XXL ? 25.325 : 33.76)
+                            }%`,
                         }}
                         transition={{
                             duration: 1.2,
@@ -111,7 +126,7 @@ function Services() {
             </div>
             <AnimatePresence>
                 {selectedService && (
-                    <motion.button
+                    <motion.div
                         initial={{
                             opacity: 0,
                         }}
@@ -132,7 +147,7 @@ function Services() {
                         onClick={() => setSelectedService(null)}
                     >
                         <div
-                            className="relative flex items-center justify-center w-1/2 bg-primary rounded-sm shadow-lg p-14"
+                            className="relative flex items-center justify-center w-1/2 bg-primary rounded-sm shadow-lg p-14 cursor-default max-2xl:w-2/3"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <div className="flex flex-col items-start gap-3">
@@ -155,7 +170,7 @@ function Services() {
                                 />
                             </button>
                         </div>
-                    </motion.button>
+                    </motion.div>
                 )}
             </AnimatePresence>
         </section>

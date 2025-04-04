@@ -1,15 +1,88 @@
 {
     "Locale": {
         "en": "English",
-        "tr": "Türkçe",
-        "es": "Español"
-    },
-    "Theme": {
-        "darkMode": "Dark Mode",
-        "lightMode": "Light Mode"
+        "tr": "Turkish"
     },
     "Common": {
-        "welcome": "Welcome",
-        "goodbye": "Good Bye"
+        "welcome": "Home",
+        "about": "About Us",
+        "services": "Our Services",
+        "contact": "Contact",
+        "welcomeTitle": "A New Step to Health",
+        "learnMore": "Learn More",
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday",
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December",
+        "reserve": "Reserve",
+        "unavailable": "Unavailable",
+        "name": "Your Name",
+        "phone": "Your Phone Number",
+        "email": "Your Email Address",
+        "date": "Date",
+        "time": "Time",
+        "reserveForm": "Appointment Form",
+        "invalidEmail": "Please enter a valid email address.",
+        "message": "Your Message",
+        "send": "Send Message"
+    },
+    "Navbar": {
+        "bookAppointment": "Book an Appointment",
+        "followUs": "Follow Us"
+    },
+    "Welcome": {
+        "title": "A New Step to Health!",
+        "description": "Take a new step for health and safety. We are here to create an environment where you can strengthen yourself and socialize.",
+        "motto": "We are here for your health and freedom of movement!",
+        "getStarted": "Get to Know Us"
+    },
+    "About": {
+        "subtitle": "Who We Are",
+        "title": "About Us",
+        "p1": "BASE ON is a center that offers specialized treatment and exercise programs tailored to individual needs with our expert team in physiotherapy and exercise. We aim to support your body in the best way possible with manual therapy, orthopedic rehabilitation, athlete rehabilitation, return to sports, spine health, posture training, and clinical pilates programs.",
+        "p2": "Our goal is to improve the quality of life of our clients with scientific and evidence-based physiotherapy methods and provide them with sustainable health solutions. With our personalized therapy and exercise programs, we work to manage pain, prevent injuries, and help you achieve a stronger body.",
+        "p3": "In a friendly environment, with a professional approach, we add the BASE ON touch to your health!",
+        "p4": "Meet us to discover the freedom of movement.",
+        "ourExperts": "Our Experts",
+        "gulceInfo": "She completed her undergraduate education at Yeditepe University, Department of Physiotherapy and Rehabilitation. After graduation, she started her Master's Program at Yeditepe University and completed her specialization in 2024 with her thesis on patients with back pain. She has received professional training in mobilization techniques, manual therapy techniques, clinical pilates, and athlete rehabilitation and has applied these skills in her clinical practice. With the aim of bringing her knowledge and experience to a wider audience and providing professional service, she became one of the founding partners of BASE ON. Here, she continues to provide services in manual therapy, orthopedic rehabilitation, athlete rehabilitation, return to sports, spine health, and clinical pilates with a holistic approach.",
+        "gulceTitle": "Expert Physiotherapist - Co-Founder",
+        "tugceInfo": "She completed her undergraduate education at Bahçeşehir University, Department of Physical Therapy and Rehabilitation. She completed part of her physiotherapy studies in Germany at PhysioCum Laude, where she received training in manual therapy, lymph drainage, and neurological approaches. She then started the Chiropractic Program at Bahçeşehir University and successfully applied her education and skills in clinical practice. She has gained extensive practical knowledge in spine health, orthopedic rehabilitation, and athlete rehabilitation. With the expertise she gained, she aimed to provide professional health services to a wider audience and became one of the founding partners of BASE ON. Here, she offers comprehensive treatment approaches in manual therapy, orthopedic rehabilitation, athlete rehabilitation, return to sports, spine health, and clinical pilates.",
+        "tugceTitle": "Physiotherapist - Co-Founder"
+    },
+    "Services": {
+        "subtitle": "What We Do",
+        "title": "Our Services",
+        "motto": "High-quality and experienced therapy services tailored to your needs",
+        "ManuelTherapy": {
+            "title": "Manual Therapy",
+            "info": "We reduce pain and improve mobility with hands-on treatment techniques.",
+            "description": "At BASE ON, our manual therapy service uses various hands-on techniques to treat musculoskeletal disorders and correct functional impairments. Our expert physiotherapists guide the treatment process with evidence-based methods such as deep tissue massage, joint mobilization, myofascial release, and functional movement techniques. These treatment techniques aim to enhance mobility, reduce pain, and support functional recovery. We adopt a personalized approach to create treatment plans tailored to each individual’s needs, ensuring a fast recovery."
+        }
+    },
+    "Appointment": {
+        "subtitle": "Reserve Your Spot",
+        "title": "Appointment Hours",
+        "info": "Please check the available hours below to book an appointment. The phone number you provide may be used for confirmation."
+    },
+    "Contact": {
+        "subtitle": "Have Any Questions?",
+        "title": "Get in Touch With Us",
+        "contactInfo": "Your Contact Information",
+        "contactText": "To stay updated on our latest developments, follow us on social media. You can also reach out by filling out the form."
     }
 }

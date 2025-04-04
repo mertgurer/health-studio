@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import BackToTop from "@/components/backToTop";
 import logo from "../../../public/assets/images/logo.png";
+import Footer from "@/components/footer";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -37,6 +38,7 @@ export default async function RootLayout({
                     <Navbar />
                     {children}
                     <BackToTop />
+                    <Footer />
                 </NextIntlClientProvider>
             </body>
         </html>

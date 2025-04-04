@@ -26,7 +26,7 @@ function ServiceFrames({ data, index, inverse, setSelectedService }: Props) {
 
     return (
         <div
-            className={`flex w-[24.025%] flex-shrink-0 gap-[0.9vw] ${
+            className={`flex w-[24.025%] flex-shrink-0 gap-[0.9vw] max-2xl:w-[32.46%] ${
                 inverse ? "flex-col-reverse" : "flex-col"
             }`}
         >
@@ -49,10 +49,12 @@ function ServiceFrames({ data, index, inverse, setSelectedService }: Props) {
                 <div className="ml-3 mb-3 group-hover:scale-110 group-hover:mb-4 duration-300">
                     {data.icon}
                 </div>
-                <h2 className="text-2xl text-start text-balance font-semibold italic">
+                <h2 className="text-2xl text-start text-balance font-semibold italic max-2xl:text-xl">
                     {t(data.title)}
                 </h2>
-                <p className="mt-4 text-start">{t(data.info)}</p>
+                <p className="mt-4 text-start max-2xl:text-sm">
+                    {t(data.info)}
+                </p>
                 <div className="flex flex-col items-start mt-auto gap-1">
                     <div className="flex items-center gap-2 font-light">
                         <p>{t("Common.learnMore")}</p>

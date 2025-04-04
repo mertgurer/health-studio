@@ -9,7 +9,37 @@
         "services": "Hizmetlerimiz",
         "contact": "İletişim",
         "welcomeTitle": "Sağlığa yeni adım",
-        "learnMore": "Daha Fazla Öğren"
+        "learnMore": "Daha Fazla Öğren",
+        "monday": "Pazartesi",
+        "tuesday": "Salı",
+        "wednesday": "Çarşamba",
+        "thursday": "Perşembe",
+        "friday": "Cuma",
+        "saturday": "Cumartesi",
+        "sunday": "Pazar",
+        "january": "Ocak",
+        "february": "Şubat",
+        "march": "Mart",
+        "april": "Nisan",
+        "may": "Mayıs",
+        "june": "Haziran",
+        "july": "Temmuz",
+        "august": "Ağustos",
+        "september": "Eylül",
+        "october": "Ekim",
+        "november": "Kasım",
+        "december": "Aralık",
+        "reserve": "Rezerve Et",
+        "unavailable": "Mevcut Değil",
+        "name": "Adınız",
+        "phone": "Telefon Numaranız",
+        "email": "E-Posta Adresiniz",
+        "date": "Tarih",
+        "time": "Saat",
+        "reserveForm": "Randevu Formu",
+        "invalidEmail": "Lütfen geçerli bir e-posta adresi giriniz.",
+        "message": "Mesajınız",
+        "send": "Mesajı İlet"
     },
     "Navbar": {
         "bookAppointment": "Randevu Al",
@@ -83,5 +113,16 @@
             "info": "Ergonomik çözümlerle sağlıklı çalışma ortamları oluştururuz.",
             "description": "Kurumsal danışmanlık hizmetimiz, her çalışma ortamına ve sektöre uygun ergonomik ve fizyoterapi çözümleri sunmayı amaçlamaktadır. Çalışanların postür, hareket alışkanlıkları ve mesleki risk faktörleri değerlendirilerek, ergonomi eğitimleri, masa başı egzersiz programları, sporculara yönelik biyomekanik analizler ve fonksiyonel hareket değerlendirmeleri gibi hizmetler sunulmaktadır. Bu sayede, hem bireysel hem de kurumsal düzeyde sağlıklı ve sürdürülebilir çalışma ortamları oluşturulması hedeflenmektedir."
         }
+    },
+    "Appointment": {
+        "subtitle": "Yer Ayırın",
+        "title": "Randevu Saatleri",
+        "info": "Randevu almak için lütfen aşağıdan mevcut saatleri kontrol ediniz. Belirtmiş olduğunuz telefon numarası teyit için kullanılabilmektedir."
+    },
+    "Contact": {
+        "subtitle": "Aklınıza Takılan bir şey mi var?",
+        "title": "Bizimle İletişim Geç",
+        "contactInfo": "İletişim Bilgileriniz",
+        "contactText": "Son gelişmelerimizden haberdar olmak için sosyal medya hesaplarımızdan bizi takip edebilir. Aynı zamanda, formu doldurarak bizimle iletişime geçebilirsiniz."
     }
 }
