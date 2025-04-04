@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import Logo from "../../public/assets/images/logo_text.png";
 import { Socials } from "@/data/socials";
 import { Navigation } from "@/constants/navigation";
-import { ScreenSize, useScreenSize } from "@/hooks/useScreenSize";
+import { useScreenSize } from "@/hooks/useScreenSize";
 const scrollThreshold = 40;
 
 function Navbar() {
@@ -218,7 +218,7 @@ function Navbar() {
                                                             behavior: "smooth",
                                                         });
                                                 }}
-                                                className="p-2 rounded-lg hover:text-secondary hover:bg-background transition-colors duration-200 group max-2xl:bg-background max-2xl:text-sm"
+                                                className="p-2 rounded-lg whitespace-nowrap hover:text-secondary hover:bg-background transition-colors duration-200 group max-2xl:bg-background max-2xl:text-sm"
                                             >
                                                 <p className="font-medium relative">
                                                     <span className="relative ">
@@ -293,7 +293,7 @@ function Navbar() {
                                     setIsMenuOpen(false);
                                 }}
                             >
-                                <p className="font-medium relative text-2xl">
+                                <p className="font-medium relative text-2xl whitespace-nowrap">
                                     {t(`Common.${item}`)} -
                                 </p>
                             </button>

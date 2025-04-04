@@ -402,7 +402,7 @@ function BookAppointment({
                                         </div>
                                         <button
                                             type="submit"
-                                            className="flex items-center justify-center gap-2 bg-secondary px-4 py-2 rounded-sm w-full"
+                                            className="flex items-center justify-center gap-2 bg-secondary px-4 py-2 rounded-sm w-full font-medium"
                                         >
                                             {t("Common.reserve")}
                                             <HugeiconsIcon
