@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FormEvent } from "react";
+import React, { FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Socials } from "@/data/socials";
 import { Link } from "@/i18n/routing";
@@ -8,11 +8,15 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Mail02Icon, TelephoneIcon } from "@hugeicons/core-free-icons";
 import ContactTextInput from "../contactTextInput";
 import { emailRegex } from "@/constants/constants";
+import toast from "react-hot-toast";
 
 function Contact() {
     const t = useTranslations();
+    const [loading, setLoading] = useState(false);
 
-    function sendMessage(event: FormEvent<HTMLFormElement>): void {
+    async function sendMessage(
+        event: FormEvent<HTMLFormElement>
+    ): Promise<void> {
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
@@ -30,11 +34,28 @@ function Contact() {
         }
 
         if (email && !emailRegex.test(email)) {
-            alert(t("Common.invalidEmail"));
+            toast.error(t("Common.invalidEmail"));
             return;
         }
 
-        console.log(customerName, phone, email, message);
+        setLoading(true);
+
+        try {
+            await toast.promise(
+                async () => {
+                    await new Promise((resolve) => setTimeout(resolve, 2000));
+                    //event.currentTarget.reset();
+                },
+                {
+                    loading: t("Contact.loading"),
+                    success: t("Contact.Success.sent"),
+                    error: (err) => t("Contact.Error.failed"),
+                }
+            );
+        } catch (err) {
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (
@@ -116,12 +137,14 @@ function Contact() {
                         label="Common.name"
                         name="customerName"
                         placeholder
+                        required
                     />
                     <ContactTextInput
                         label="Common.phone"
                         name="phone"
                         type="tel"
                         placeholder
+                        required
                     />
                     <ContactTextInput
                         label="Common.email"
@@ -134,11 +157,13 @@ function Contact() {
                             label="Common.message"
                             name="message"
                             placeholder
+                            required
                         />
                     </div>
                     <button
                         type="submit"
-                        className="bg-secondary text-white px-4 py-2 font-medium rounded-md max-2xl:text-sm"
+                        disabled={loading}
+                        className={`bg-secondary text-white px-4 py-2 font-medium rounded-md max-2xl:text-sm disabled:opacity-70 disabled:cursor-not-allowed`}
                     >
                         {t("Common.send")}
                     </button>

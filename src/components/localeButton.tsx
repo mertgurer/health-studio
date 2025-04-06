@@ -21,12 +21,14 @@ export default function LocaleButton({ language, img }: Props) {
             className="flex relative items-center rounded bg-primary"
             onClick={() => router.replace(pathname, { locale: language })}
         >
-            <div>
+            <div className="relative w-10 h-[25px] max-md:w-8 max-md:h-5">
                 <Image
                     src={img}
                     alt="Locale"
-                    width={isMobile ? 32 : 40}
-                    height={isMobile ? 20 : 25}
+                    fill
+                    sizes="100%"
+                    draggable={false}
+                    className="object-cover"
                 />
             </div>
         </button>

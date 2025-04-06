@@ -117,12 +117,29 @@
     "Appointment": {
         "subtitle": "Yer Ayırın",
         "title": "Randevu Saatleri",
-        "info": "Randevu almak için lütfen aşağıdan mevcut saatleri kontrol ediniz. Belirtmiş olduğunuz telefon numarası teyit için kullanılabilmektedir."
+        "info": "Randevu almak için lütfen aşağıdan mevcut saatleri kontrol ediniz. Belirtmiş olduğunuz telefon numarası teyit için kullanılabilmektedir.",
+        "loading": "Randevu alınıyor.",
+        "Error": {
+            "notLoaded": "Randevu saatleri yüklenemedi. Lütfen daha sonra tekrar deneyiniz.",
+            "timeSlotNotAvailable": "Bu saat aralığı zaten dolu. Lütfen başka bir saat seçiniz.",
+            "monthLimit": "Randevular en fazla bir ay önceden alınabilir.",
+            "failed": "Randevu alma işlemi başarısız oldu. Lütfen daha sonra tekrar deneyiniz."
+        },
+        "Success": {
+            "created": "Randevu başarıyla oluşturuldu. Teyit için telefon numaranızdan size ulaşılacaktır."
+        }
     },
     "Contact": {
         "subtitle": "Aklınıza Takılan bir şey mi var?",
         "title": "Bizimle İletişim Geç",
         "contactInfo": "İletişim Bilgileriniz",
-        "contactText": "Son gelişmelerimizden haberdar olmak için sosyal medya hesaplarımızdan bizi takip edebilir. Aynı zamanda, formu doldurarak bizimle iletişime geçebilirsiniz."
+        "contactText": "Son gelişmelerimizden haberdar olmak için sosyal medya hesaplarımızdan bizi takip edebilir. Aynı zamanda, formu doldurarak bizimle iletişime geçebilirsiniz.",
+        "loading": "Mesaj gönderiliyor.",
+        "Error": {
+            "failed": "Mesaj gönderme işlemi başarısız oldu. Lütfen daha sonra tekrar deneyiniz."
+        },
+        "Success": {
+            "sent": "Mesajınız başarıyla gönderildi. En kısa sürede size ulaşacağız."
+        }
     }
 }

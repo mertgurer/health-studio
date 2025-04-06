@@ -31,9 +31,9 @@
         "december": "December",
         "reserve": "Reserve",
         "unavailable": "Unavailable",
-        "name": "Your Name",
-        "phone": "Your Phone Number",
-        "email": "Your Email Address",
+        "name": "Name Surname",
+        "phone": "Phone Number",
+        "email": "Email Address",
         "date": "Date",
         "time": "Time",
         "reserveForm": "Appointment Form",
@@ -117,12 +117,29 @@
     "Appointment": {
         "subtitle": "Book a Spot",
         "title": "Appointment Times",
-        "info": "Please check the available times below to make an appointment. The phone number you provide may be used for confirmation."
+        "info": "Please check the available times below to make an appointment. The phone number you provide may be used for confirmation.",
+        "loading": "Booking appointment.",
+        "Error": {
+            "notLoaded": "Appointment times could not be loaded. Please try again later.",
+            "timeSlotNotAvailable": "This time slot is already taken. Please choose another time.",
+            "monthLimit": "Appointments can only be booked up to one month in advance.",
+            "failed": "The appointment booking process failed. Please try again later."
+        },
+        "Success": {
+            "created": "The appointment was successfully created. You will be contacted via the phone number you provided for confirmation."
+        }
     },
     "Contact": {
         "subtitle": "Got a Question?",
         "title": "Get in Touch with Us",
         "contactInfo": "Your Contact Information",
-        "contactText": "Follow us on social media to stay updated. You can also fill out the form to contact us."
+        "contactText": "Follow us on social media to stay updated. You can also fill out the form to contact us.",
+        "loading": "Sending message.",
+        "Error": {
+            "failed": "Message sending process failed. Please try again later."
+        },
+        "Success": {
+            "sent": "Your message has been sent successfully. We will contact you shortly."
+        }
     }
 }

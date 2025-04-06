@@ -17,7 +17,6 @@ const config: Config = {
                 primary: "var(--primary)",
                 secondary: "var(--secondary)",
                 tertiary: "var(--tertiary)",
-                quaternary: "var(--quaternary)",
                 text: "var(--text)",
             },
             textColor: {
@@ -25,7 +24,6 @@ const config: Config = {
                 primary: "var(--primary)",
                 secondary: "var(--secondary)",
                 tertiary: "var(--tertiary)",
-                quaternary: "var(--quaternary)",
                 text: "var(--text)",
             },
             borderColor: {
@@ -33,7 +31,6 @@ const config: Config = {
                 primary: "var(--primary)",
                 secondary: "var(--secondary)",
                 tertiary: "var(--tertiary)",
-                quaternary: "var(--quaternary)",
                 text: "var(--text)",
             },
             boxShadowColor: {
@@ -41,7 +38,6 @@ const config: Config = {
                 primary: "var(--primary)",
                 secondary: "var(--secondary)",
                 tertiary: "var(--tertiary)",
-                quaternary: "var(--quaternary)",
                 text: "var(--text)",
             },
             gradientColorStops: {
@@ -49,7 +45,6 @@ const config: Config = {
                 primary: "var(--primary)",
                 secondary: "var(--secondary)",
                 tertiary: "var(--tertiary)",
-                quaternary: "var(--quaternary)",
                 text: "var(--text)",
             },
         },

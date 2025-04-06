@@ -7,14 +7,22 @@ interface Props {
     name: string;
     label: string;
     type?: HTMLInputTypeAttribute;
+    required?: boolean;
 }
 
-function FormTextInput({ label, type = "text", name }: Props) {
+function FormTextInput({
+    label,
+    type = "text",
+    name,
+    required = false,
+}: Props) {
     const t = useTranslations();
 
     return (
         <div className="flex flex-col items-start w-full">
-            <label className="text-sm font-medium ml-1">{t(label)}</label>
+            <label className="text-sm font-medium ml-1">
+                {t(label)} {required && "*"}
+            </label>
             <input
                 name={name}
                 type={type}

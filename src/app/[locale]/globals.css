@@ -8,7 +8,6 @@
     --primary-light: #f1eae0;
     --secondary-light: #d9c6ab;
     --tertiary-light: #fefefe;
-    --quaternary-light: #d9c6ab;
     --text-light: #000000;
 
     /* initiate light values */
@@ -16,7 +15,6 @@
     --primary: var(--primary-light);
     --secondary: var(--secondary-light);
     --tertiary: var(--tertiary-light);
-    --quaternary: var(--quaternary-light);
     --text: var(--text-light);
 }
 
@@ -54,5 +52,18 @@ select {
 @layer utilities {
     .text-balance {
         text-wrap: balance;
+    }
+}
+
+.loading-icon {
+    animation: animate 2s infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(720deg);
     }
 }

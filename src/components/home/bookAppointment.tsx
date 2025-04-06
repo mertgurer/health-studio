@@ -12,21 +12,22 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import FormInput from "../formTextInput";
 import { days, emailRegex, secondsInDay } from "@/constants/constants";
 import { useScreenSize } from "@/hooks/useScreenSize";
+import toast from "react-hot-toast";
 
 interface Props {
     todayValue: Date;
     weekStartValue: Date;
     weekEndValue: Date;
-    reservations: {
-        id: string;
-        date: string;
-        startTime: string;
-        endTime: string;
-    }[];
+    reservations:
+        | {
+              start: Date;
+              end: Date;
+          }[]
+        | null;
 }
 
 function BookAppointment({
@@ -38,6 +39,7 @@ function BookAppointment({
     const t = useTranslations();
     const { isMobile } = useScreenSize();
 
+    const [loading, setLoading] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const [selectedTime, setSelectedTime] = useState<{
         date: Date;
@@ -62,7 +64,9 @@ function BookAppointment({
         setWeekEnd(sunday);
     }
 
-    function createReservation(event: FormEvent<HTMLFormElement>): void {
+    async function createReservation(
+        event: FormEvent<HTMLFormElement>
+    ): Promise<void> {
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
@@ -79,12 +83,76 @@ function BookAppointment({
         }
 
         if (email && !emailRegex.test(email)) {
-            alert(t("Common.invalidEmail"));
+            toast.error(t("Common.invalidEmail"));
             return;
         }
 
-        console.log(customerName, phone, email);
+        setLoading(true);
+
+        try {
+            await toast.promise(
+                async () => {
+                    const res = await fetch("/api/calendar", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            name: customerName,
+                            phone,
+                            email,
+                            startDateTime: `${
+                                selectedTime?.date.toISOString().split("T")[0]
+                            }T${selectedTime?.startTime}`,
+                            endDateTime: `${
+                                selectedTime?.date.toISOString().split("T")[0]
+                            }T${selectedTime?.endTime}`,
+                        }),
+                    });
+
+                    if (!res.ok) {
+                        const error = await res.json();
+                        throw new Error(error.error);
+                    }
+
+                    setSelectedTime(null);
+
+                    if (reservations) {
+                        const newEvent = {
+                            start: new Date(
+                                `${
+                                    selectedTime?.date
+                                        .toISOString()
+                                        .split("T")[0]
+                                }T${selectedTime?.startTime}`
+                            ),
+                            end: new Date(
+                                `${
+                                    selectedTime?.date
+                                        .toISOString()
+                                        .split("T")[0]
+                                }T${selectedTime?.endTime}`
+                            ),
+                        };
+
+                        reservations.push(newEvent);
+                    }
+                },
+                {
+                    loading: t("Appointment.loading"),
+                    success: t("Appointment.Success.created"),
+                    error: (err) => t(err.message),
+                }
+            );
+        } catch (err) {
+        } finally {
+            setLoading(false);
+        }
     }
+
+    useEffect(() => {
+        if (!reservations) {
+            toast.error(t("Appointment.Error.notLoaded"));
+        }
+    }, [reservations, t]);
 
     return (
         <section
@@ -225,13 +293,30 @@ function BookAppointment({
                                     todayValue.getTime() + 3 * 60 * 60 * 1000
                                 );
 
-                                const isPast = date < threeHoursFromNow;
-                                const isReserved = reservations.some(
-                                    (reservation) =>
-                                        reservation.date ==
-                                            date.toISOString().split("T")[0] &&
-                                        reservation.startTime == startTime
+                                const oneMonthFromNow = new Date(
+                                    todayValue.getTime() +
+                                        30 * 24 * 60 * 60 * 1000
                                 );
+
+                                let isPastOrFuture = true;
+                                let isReserved = false;
+
+                                if (reservations) {
+                                    isPastOrFuture =
+                                        date < threeHoursFromNow ||
+                                        date > oneMonthFromNow;
+                                    isReserved = reservations.some(
+                                        (reservation) =>
+                                            reservation.start
+                                                .toISOString()
+                                                .split("T")[0] ==
+                                                date
+                                                    .toISOString()
+                                                    .split("T")[0] &&
+                                            reservation.start.getHours() ==
+                                                startHour
+                                    );
+                                }
 
                                 return (
                                     <div
@@ -241,7 +326,7 @@ function BookAppointment({
                                         <span className="absolute top-3 left-3 italic text-xs text-secondary max-md:top-1 max-md:left-1">
                                             {startTime} - {endTime}
                                         </span>
-                                        {!isPast &&
+                                        {!isPastOrFuture &&
                                             (!isReserved ? (
                                                 <button
                                                     className="flex items-center gap-2 px-3 py-1 bg-secondary mt-6 rounded-sm max-2xl:text-xs max-md:mt-4 max-md:px-2"
@@ -275,7 +360,7 @@ function BookAppointment({
                                                     {t("Common.unavailable")}
                                                 </p>
                                             ))}
-                                        {(isPast || isReserved) && (
+                                        {(isPastOrFuture || isReserved) && (
                                             <div className="absolute inset-0 z-10 bg-black/10" />
                                         )}
                                     </div>
@@ -332,7 +417,7 @@ function BookAppointment({
                                 "color-mix(in srgb, var(--text), transparent 40%)",
                         }}
                         className="fixed top-0 left-0 w-full h-full z-40 flex items-center justify-center"
-                        onClick={() => setSelectedTime(null)}
+                        onClick={() => !loading && setSelectedTime(null)}
                     >
                         <div
                             className="relative flex items-center justify-center bg-primary rounded-sm shadow-lg p-14 cursor-default max-md:px-10 max-md:w-[90%]"
@@ -356,12 +441,11 @@ function BookAppointment({
                                             {t("Common.date")}:{" "}
                                         </span>
                                         {selectedTime.date.getDate()}{" "}
-                                        {t(
-                                            `Common.${selectedTime.date
-                                                .toLocaleString("default", {
-                                                    month: "long",
-                                                })
-                                                .toLowerCase()}`
+                                        {selectedTime.date.toLocaleString(
+                                            "en",
+                                            {
+                                                month: "long",
+                                            }
                                         )}
                                         {", "}
                                         {t(
@@ -389,10 +473,12 @@ function BookAppointment({
                                             <FormInput
                                                 label={"Common.name"}
                                                 name={"customerName"}
+                                                required
                                             />
                                             <FormInput
                                                 label={"Common.phone"}
                                                 name={"phone"}
+                                                required
                                             />
                                             <FormInput
                                                 label={"Common.email"}
@@ -402,7 +488,8 @@ function BookAppointment({
                                         </div>
                                         <button
                                             type="submit"
-                                            className="flex items-center justify-center gap-2 bg-secondary px-4 py-2 rounded-sm w-full font-medium"
+                                            disabled={loading}
+                                            className={`flex items-center justify-center gap-2 bg-secondary px-4 py-2 rounded-sm w-full font-medium disabled:opacity-70 disabled:cursor-not-allowed`}
                                         >
                                             {t("Common.reserve")}
                                             <HugeiconsIcon
@@ -416,7 +503,9 @@ function BookAppointment({
                             </div>
                             <button
                                 className="absolute top-3 right-3 p-2"
-                                onClick={() => setSelectedTime(null)}
+                                onClick={() =>
+                                    !loading && setSelectedTime(null)
+                                }
                             >
                                 <HugeiconsIcon
                                     icon={Cancel01Icon}

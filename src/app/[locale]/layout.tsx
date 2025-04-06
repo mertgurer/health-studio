@@ -7,6 +7,7 @@ import Navbar from "@/components/navbar";
 import BackToTop from "@/components/backToTop";
 import logo from "../../../public/assets/images/logo.png";
 import Footer from "@/components/footer";
+import { Toaster } from "react-hot-toast";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -35,6 +36,20 @@ export default async function RootLayout({
         <html lang={locale}>
             <body className={montserrat.className}>
                 <NextIntlClientProvider messages={messages}>
+                    <Toaster
+                        position="top-center"
+                        toastOptions={{
+                            style: {
+                                background: "var(--primary)",
+                                color: "var(--text)",
+                                paddingLeft: "20px",
+                                paddingRight: "20px",
+                                paddingTop: "12px",
+                                paddingBlock: "12px",
+                                gap: "8px",
+                            },
+                        }}
+                    />
                     <Navbar />
                     {children}
                     <BackToTop />
