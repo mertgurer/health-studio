@@ -2,15 +2,24 @@
 
 import React, { FormEvent, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Socials } from "@/data/socials";
 import { Link } from "@/i18n/routing";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Mail02Icon, TelephoneIcon } from "@hugeicons/core-free-icons";
 import ContactTextInput from "../contactTextInput";
 import { emailRegex } from "@/constants/constants";
 import toast from "react-hot-toast";
+import { Social } from "@/services/SocialService";
+import { SocialIcons } from "@/data/socialData";
+import emailjs from "@emailjs/browser";
 
-function Contact() {
+interface Props {
+    email: string;
+    phone: string;
+    address: string;
+    socials: Social[];
+}
+
+function Contact({ email, phone, address, socials }: Props) {
     const t = useTranslations();
     const [loading, setLoading] = useState(false);
 
@@ -43,13 +52,24 @@ function Contact() {
         try {
             await toast.promise(
                 async () => {
-                    await new Promise((resolve) => setTimeout(resolve, 2000));
-                    //event.currentTarget.reset();
+                    await emailjs.sendForm(
+                        process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID || "",
+                        process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID || "",
+                        event.currentTarget,
+                        process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY || ""
+                    );
+
+                    const formElement = document.getElementById(
+                        "contact-form"
+                    ) as HTMLFormElement;
+                    if (formElement) {
+                        formElement.reset();
+                    }
                 },
                 {
                     loading: t("Contact.loading"),
                     success: t("Contact.Success.sent"),
-                    error: (err) => t("Contact.Error.failed"),
+                    error: (err) => t("Contact.Error.failed") + err,
                 }
             );
         } catch (err) {
@@ -73,8 +93,9 @@ function Contact() {
                     </h2>
                 </div>
                 <div className="flex items-center justify-center gap-2 my-6 max-2xl:mt-4">
-                    {Socials.sort((a, b) => a.index - b.index).map(
-                        (social, index) => {
+                    {socials
+                        .sort((a, b) => a.index - b.index)
+                        .map((social, index) => {
                             return (
                                 <Link
                                     key={index}
@@ -84,7 +105,7 @@ function Contact() {
                                     className="p-1 border border-text bg-background rounded-full shadow-md duration-500 relative group/tooltip hover:border-secondary max-2xl:p-0.5"
                                 >
                                     <div className="group-hover/tooltip:text-secondary hover:scale-95 duration-200 max-2xl:scale-90">
-                                        {social.icon}
+                                        {SocialIcons[social.name]}
                                     </div>
                                     <span
                                         className="absolute z-10 -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-tertiary rounded text-sm opacity-0 
@@ -94,8 +115,7 @@ function Contact() {
                                     </span>
                                 </Link>
                             );
-                        }
-                    )}
+                        })}
                 </div>
 
                 <p className="text-center text-balance mt-2 mb-10 opacity-80 max-2xl:text-sm">
@@ -108,7 +128,7 @@ function Contact() {
                         strokeWidth={1.5}
                         className="max-2xl:size-5"
                     />
-                    <span>+90 555 555 5555</span>
+                    <span className="font-medium">{phone}</span>
                 </div>
                 <div className="flex items-center gap-2 my-1 max-2xl:text-sm">
                     <HugeiconsIcon
@@ -117,12 +137,11 @@ function Contact() {
                         strokeWidth={1.5}
                         className="max-2xl:size-5"
                     />
-                    <span>support@baseon.com</span>
+                    <span className="font-medium">{email}</span>
                 </div>
 
-                <div className="flex flex-col items-center mt-4 my-1 whitespace-nowrap max-2xl:text-sm">
-                    <p>Mehmet Akif Mahallesi, Güzel Sk. No: 12, Daire: 5</p>
-                    <p>Kadıköy, İstanbul, 34730</p>
+                <div className="flex flex-col items-center mt-4 my-1 font-medium max-2xl:text-sm">
+                    <p className="text-center text-balance">{address}</p>
                 </div>
             </div>
             <div className="flex flex-col items-end pl-[4%] w-1/2 max-md:w-full max-md:mt-16 max-md:pl-0">
@@ -131,6 +150,7 @@ function Contact() {
                 </h2>
                 <form
                     className="flex flex-col gap-10 w-full max-2xl:gap-7"
+                    id="contact-form"
                     onSubmit={sendMessage}
                 >
                     <ContactTextInput

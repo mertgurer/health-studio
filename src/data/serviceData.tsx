@@ -21,69 +21,42 @@ import ReturnToSportsImage from "../../public/assets/images/SPORA DÖNÜŞ.jpg";
 import PostureAnalysisImage from "../../public/assets/images/POSTÜR ANALİZİ.jpg";
 import RecoveryImage from "../../public/assets/images/RECOVERY.jpg";
 
-export interface ServiceData {
-    title: string;
-    info: string;
-    description: string;
+interface ServiceData {
     image: StaticImageData;
     icon: IconSvgElement;
 }
 
-export const services: ServiceData[] = [
-    {
-        title: "Services.ManuelTherapy.title",
-        info: "Services.ManuelTherapy.info",
-        description: "Services.ManuelTherapy.description",
+export const ServiceData: { [key: string]: ServiceData } = {
+    manuel_therapy: {
         image: ManuelTherapyImage,
         icon: Clapping01Icon,
     },
-    {
-        title: "Services.ClinicalPilates.title",
-        info: "Services.ClinicalPilates.info",
-        description: "Services.ClinicalPilates.description",
+    clinical_pilates: {
         image: ClinicalPilatesImage,
         icon: YogaMatIcon,
     },
-    {
-        title: "Services.OrthopedicRehabilitation.title",
-        info: "Services.OrthopedicRehabilitation.info",
-        description: "Services.OrthopedicRehabilitation.description",
+    orthopedic_rehabilitation: {
         image: OrthopedicRehabilitationImage,
         icon: Yoga03Icon,
     },
-    {
-        title: "Services.AthleteRehabilitation.title",
-        info: "Services.AthleteRehabilitation.info",
-        description: "Services.AthleteRehabilitation.description",
+    athlete_rehabilitation: {
         image: AthleteRehabilitationImage,
         icon: Bicycle01Icon,
     },
-    {
-        title: "Services.PersonalExercise.title",
-        info: "Services.PersonalExercise.info",
-        description: "Services.PersonalExercise.description",
+    personal_exercise: {
         image: PersonalExerciseImage,
         icon: WorkoutWarmUpIcon,
     },
-    {
-        title: "Services.ReturnToSports.title",
-        info: "Services.ReturnToSports.info",
-        description: "Services.ReturnToSports.description",
+    return_to_sports: {
         image: ReturnToSportsImage,
         icon: WorkoutSquatsIcon,
     },
-    {
-        title: "Services.PostureAnalysis.title",
-        info: "Services.PostureAnalysis.info",
-        description: "Services.PostureAnalysis.description",
+    posture_analysis: {
         image: PostureAnalysisImage,
         icon: MarketAnalysisIcon,
     },
-    {
-        title: "Services.Recovery.title",
-        info: "Services.Recovery.info",
-        description: "Services.Recovery.description",
+    recovery: {
         image: RecoveryImage,
         icon: HealthIcon,
     },
-];
+};

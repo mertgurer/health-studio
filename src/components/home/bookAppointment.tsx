@@ -14,9 +14,16 @@ import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import React, { FormEvent, useEffect, useState } from "react";
 import FormInput from "../formTextInput";
-import { days, emailRegex, secondsInDay } from "@/constants/constants";
+import {
+    days,
+    emailRegex,
+    ExpertNames,
+    Experts,
+    secondsInDay,
+} from "@/constants/constants";
 import { useScreenSize } from "@/hooks/useScreenSize";
 import toast from "react-hot-toast";
+import Selection from "../Selection";
 
 interface Props {
     todayValue: Date;
@@ -26,6 +33,7 @@ interface Props {
         | {
               start: Date;
               end: Date;
+              expertId: Experts;
           }[]
         | null;
 }
@@ -45,6 +53,7 @@ function BookAppointment({
         date: Date;
         startTime: string;
         endTime: string;
+        experts: Experts[];
     } | null>(null);
     const [weekStart, setWeekStart] = useState(weekStartValue);
     const [weekEnd, setWeekEnd] = useState(weekEndValue);
@@ -73,12 +82,14 @@ function BookAppointment({
         const customerName = formData.get("customerName") as string;
         const phone = formData.get("phone") as string;
         const email = formData.get("email") as string;
+        const selectedExpertId = formData.get("selectedExpert") as string;
 
-        if (!customerName && !phone && !email) {
+        if (!customerName && !phone && !email && !selectedExpertId) {
             return;
         }
 
-        if (!customerName || !phone) {
+        if (!customerName || !phone || !selectedExpertId) {
+            toast.error(t("Appointment.Error.fillAllFields"));
             return;
         }
 
@@ -105,6 +116,7 @@ function BookAppointment({
                             endDateTime: `${
                                 selectedTime?.date.toISOString().split("T")[0]
                             }T${selectedTime?.endTime}`,
+                            expertId: selectedExpertId,
                         }),
                     });
 
@@ -131,9 +143,15 @@ function BookAppointment({
                                         .split("T")[0]
                                 }T${selectedTime?.endTime}`
                             ),
+                            expertId:
+                                selectedExpertId == Experts.GULCE.toString()
+                                    ? Experts.GULCE
+                                    : Experts.TUGCE,
                         };
 
                         reservations.push(newEvent);
+
+                        console.log(reservations, newEvent);
                     }
                 },
                 {
@@ -160,66 +178,82 @@ function BookAppointment({
             className="relative flex flex-col items-center w-full px-[10%] py-16 bg-secondary -mt-10 max-2xl:px-[5%] max-md:-mt-0 max-md:py-8 max-md:overflow-hidden"
         >
             <div className="flex justify-between items-end w-full px-10 overflow-hidden max-2xl:px-0 max-md:flex-col-reverse max-md:items-center">
-                <div className="flex items-center h-min gap-7 max-2xl:gap-2 max-2xl:ml-[3%]">
-                    <button
-                        onClick={() => changeWeek("prev")}
-                        className="p-2 rounded-full hover:bg-secondary/20 duration-300"
-                    >
-                        <HugeiconsIcon
-                            icon={ArrowLeft01Icon}
-                            size={36}
-                            strokeWidth={1.5}
-                            className="max-2xl:size-7"
-                        />
-                    </button>
-                    <div className="flex items-center justify-center gap-5">
-                        <span className="text-2xl font-medium max-2xl:text-lg">
-                            {weekStart.getFullYear()}
-                        </span>
-                        <span className="text-2xl font-medium whitespace-nowrap max-2xl:text-lg">
-                            {weekStart.getMonth() === weekEnd.getMonth()
-                                ? t(
-                                      `Common.${new Intl.DateTimeFormat(
-                                          "en-US",
-                                          {
-                                              month: "long",
-                                          }
+                <div className="flex flex-col max-md:items-center">
+                    <div className="flex items-center h-min gap-7 max-2xl:gap-2 max-2xl:ml-[3%]">
+                        <button
+                            onClick={() => changeWeek("prev")}
+                            className="p-2 rounded-full hover:bg-secondary/20 duration-300"
+                        >
+                            <HugeiconsIcon
+                                icon={ArrowLeft01Icon}
+                                size={36}
+                                strokeWidth={1.5}
+                                className="max-2xl:size-7"
+                            />
+                        </button>
+                        <div className="flex items-center justify-center gap-5">
+                            <span className="text-2xl font-medium max-2xl:text-lg">
+                                {weekStart.getFullYear()}
+                            </span>
+                            <span className="text-2xl font-medium whitespace-nowrap max-2xl:text-lg">
+                                {weekStart.getMonth() === weekEnd.getMonth()
+                                    ? t(
+                                          `Common.${new Intl.DateTimeFormat(
+                                              "en-US",
+                                              {
+                                                  month: "long",
+                                              }
+                                          )
+                                              .format(weekStart)
+                                              .toLowerCase()}`
                                       )
-                                          .format(weekStart)
-                                          .toLowerCase()}`
-                                  )
-                                : `${t(
-                                      `Common.${new Intl.DateTimeFormat(
-                                          "en-US",
-                                          {
-                                              month: "long",
-                                          }
-                                      )
-                                          .format(weekStart)
-                                          .toLowerCase()}`
-                                  )} - ${t(
-                                      `Common.${new Intl.DateTimeFormat(
-                                          "en-US",
-                                          {
-                                              month: "long",
-                                          }
-                                      )
-                                          .format(weekEnd)
-                                          .toLowerCase()}`
-                                  )}`}
-                        </span>
+                                    : `${t(
+                                          `Common.${new Intl.DateTimeFormat(
+                                              "en-US",
+                                              {
+                                                  month: "long",
+                                              }
+                                          )
+                                              .format(weekStart)
+                                              .toLowerCase()}`
+                                      )} - ${t(
+                                          `Common.${new Intl.DateTimeFormat(
+                                              "en-US",
+                                              {
+                                                  month: "long",
+                                              }
+                                          )
+                                              .format(weekEnd)
+                                              .toLowerCase()}`
+                                      )}`}
+                            </span>
+                        </div>
+                        <button
+                            onClick={() => changeWeek("next")}
+                            className="p-2 rounded-full hover:bg-secondary/20 duration-300"
+                        >
+                            <HugeiconsIcon
+                                icon={ArrowRight01Icon}
+                                size={36}
+                                strokeWidth={1.5}
+                                className="max-2xl:size-7"
+                            />
+                        </button>
                     </div>
-                    <button
-                        onClick={() => changeWeek("next")}
-                        className="p-2 rounded-full hover:bg-secondary/20 duration-300"
-                    >
-                        <HugeiconsIcon
-                            icon={ArrowRight01Icon}
-                            size={36}
-                            strokeWidth={1.5}
-                            className="max-2xl:size-7"
-                        />
-                    </button>
+                    <div className="flex flex-col ml-[14%] max-md:ml-0">
+                        <div className="flex gap-2 items-center">
+                            <div className="bg-primary p-1 rounded-md">
+                                <div className="bg-[#C6A980] w-3 rounded-full aspect-square border-1 border-text" />
+                            </div>
+                            <p>{ExpertNames[0]}</p>
+                        </div>
+                        <div className="flex gap-2 items-center">
+                            <div className="bg-primary p-1 rounded-md">
+                                <div className="bg-[#D3BC9C] w-3 rounded-full aspect-square border-1 border-text" />
+                            </div>
+                            <p>{ExpertNames[1]}</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="flex flex-col justify-center items-center text-center mb-8 -mr-[10%] max-md:mr-0 max-md:mb-4">
                     <h1 className="max-2xl:text-sm">
@@ -278,11 +312,11 @@ function BookAppointment({
                     transition={{ duration: 0.7 }}
                 >
                     <div className="grid grid-cols-7 gap-[2px] p-[2px] max-md:flex-wrap max-md:w-[852px]">
-                        {Array.from({ length: 7 }).map((_, timeIndex) =>
+                        {Array.from({ length: 10 }).map((_, timeIndex) =>
                             Array.from({ length: 7 }).map((_, dayIndex) => {
                                 const startHour = 10 + timeIndex;
                                 const startTime = `${startHour}:00`;
-                                const endTime = `${startHour}:50`;
+                                const endTime = `${startHour}:45`;
 
                                 const date = new Date(
                                     weekStart.getTime() +
@@ -300,22 +334,43 @@ function BookAppointment({
 
                                 let isPastOrFuture = true;
                                 let isReserved = false;
+                                let isReservedForGulce = false;
+                                let isReservedForTugce = false;
 
                                 if (reservations) {
                                     isPastOrFuture =
                                         date < threeHoursFromNow ||
                                         date > oneMonthFromNow;
-                                    isReserved = reservations.some(
-                                        (reservation) =>
-                                            reservation.start
-                                                .toISOString()
-                                                .split("T")[0] ==
-                                                date
+
+                                    const matchingReservations =
+                                        reservations.filter(
+                                            (reservation) =>
+                                                reservation.start
                                                     .toISOString()
-                                                    .split("T")[0] &&
-                                            reservation.start.getHours() ==
-                                                startHour
-                                    );
+                                                    .split("T")[0] ==
+                                                    date
+                                                        .toISOString()
+                                                        .split("T")[0] &&
+                                                (reservation.start.getHours() ==
+                                                    startHour ||
+                                                    (reservation.end.getHours() ==
+                                                        startHour &&
+                                                        reservation.end.getMinutes() !==
+                                                            0))
+                                        );
+
+                                    isReservedForGulce =
+                                        matchingReservations.some(
+                                            (r) => r.expertId === Experts.GULCE
+                                        );
+                                    isReservedForTugce =
+                                        matchingReservations.some(
+                                            (r) => r.expertId === Experts.TUGCE
+                                        );
+
+                                    isReserved =
+                                        isReservedForGulce &&
+                                        isReservedForTugce;
                                 }
 
                                 return (
@@ -326,41 +381,72 @@ function BookAppointment({
                                         <span className="absolute top-3 left-3 italic text-xs text-secondary max-md:top-1 max-md:left-1">
                                             {startTime} - {endTime}
                                         </span>
-                                        {!isPastOrFuture &&
+                                        {!(isPastOrFuture || dayIndex === 6) &&
                                             (!isReserved ? (
-                                                <button
-                                                    className="flex items-center gap-2 px-3 py-1 bg-secondary mt-6 rounded-sm max-2xl:text-xs max-md:mt-4 max-md:px-2"
-                                                    onClick={() => {
-                                                        const date = new Date(
-                                                            weekStart.getTime() +
-                                                                dayIndex *
-                                                                    secondsInDay
-                                                        );
-                                                        const startHour =
-                                                            10 + timeIndex;
-                                                        const startTime = `${startHour}:00`;
-                                                        const endTime = `${startHour}:50`;
-                                                        setSelectedTime({
-                                                            date,
-                                                            startTime,
-                                                            endTime,
-                                                        });
-                                                    }}
-                                                >
-                                                    <HugeiconsIcon
-                                                        icon={Appointment01Icon}
-                                                        size={16}
-                                                        strokeWidth={1.5}
-                                                        className="max-2xl:size-3"
-                                                    />
-                                                    {t("Common.reserve")}
-                                                </button>
+                                                <div className="flex flex-col items-center gap-1">
+                                                    <button
+                                                        className="flex items-center gap-2 px-3 py-1 bg-secondary mt-6 rounded-sm max-2xl:text-xs max-md:mt-4 max-md:px-2"
+                                                        onClick={() => {
+                                                            const date =
+                                                                new Date(
+                                                                    weekStart.getTime() +
+                                                                        dayIndex *
+                                                                            secondsInDay
+                                                                );
+                                                            const startHour =
+                                                                10 + timeIndex;
+                                                            const startTime = `${startHour}:00`;
+                                                            const endTime = `${startHour}:45`;
+
+                                                            const experts = [];
+                                                            if (
+                                                                !isReservedForGulce
+                                                            )
+                                                                experts.push(
+                                                                    Experts.GULCE
+                                                                );
+                                                            if (
+                                                                !isReservedForTugce
+                                                            )
+                                                                experts.push(
+                                                                    Experts.TUGCE
+                                                                );
+
+                                                            setSelectedTime({
+                                                                date,
+                                                                startTime,
+                                                                endTime,
+                                                                experts,
+                                                            });
+                                                        }}
+                                                    >
+                                                        <HugeiconsIcon
+                                                            icon={
+                                                                Appointment01Icon
+                                                            }
+                                                            size={16}
+                                                            strokeWidth={1.5}
+                                                            className="max-2xl:size-3"
+                                                        />
+                                                        {t("Common.reserve")}
+                                                    </button>
+                                                    <div className="absolute top-3 right-3 flex gap-1 max-md:top-2 max-md:right-1 max-md:gap-px">
+                                                        {!isReservedForGulce && (
+                                                            <div className="bg-[#C6A980] w-3 rounded-full aspect-square border-1 border-text max-md:w-2" />
+                                                        )}
+                                                        {!isReservedForTugce && (
+                                                            <div className="bg-[#D3BC9C] w-3 rounded-full aspect-square border-1 border-text max-md:w-2" />
+                                                        )}
+                                                    </div>
+                                                </div>
                                             ) : (
                                                 <p className="opacity-70 mt-6 max-2xl:text-xs max-md:mt-4">
                                                     {t("Common.unavailable")}
                                                 </p>
                                             ))}
-                                        {(isPastOrFuture || isReserved) && (
+                                        {(isPastOrFuture ||
+                                            isReserved ||
+                                            dayIndex === 6) && (
                                             <div className="absolute inset-0 z-10 bg-black/10" />
                                         )}
                                     </div>
@@ -441,11 +527,12 @@ function BookAppointment({
                                             {t("Common.date")}:{" "}
                                         </span>
                                         {selectedTime.date.getDate()}{" "}
-                                        {selectedTime.date.toLocaleString(
-                                            "en",
-                                            {
-                                                month: "long",
-                                            }
+                                        {t(
+                                            `Common.${selectedTime.date
+                                                .toLocaleString("en", {
+                                                    month: "long",
+                                                })
+                                                .toLocaleLowerCase()}`
                                         )}
                                         {", "}
                                         {t(
@@ -469,7 +556,7 @@ function BookAppointment({
                                         className="flex flex-col items-center gap-4 max-md:w-full"
                                         onSubmit={createReservation}
                                     >
-                                        <div className="flex gap-4 max-md:flex-col max-md:w-full">
+                                        <div className="flex gap-4 min-w-[35vw] max-md:flex-col max-md:w-full">
                                             <FormInput
                                                 label={"Common.name"}
                                                 name={"customerName"}
@@ -478,12 +565,25 @@ function BookAppointment({
                                             <FormInput
                                                 label={"Common.phone"}
                                                 name={"phone"}
+                                                type="tel"
                                                 required
                                             />
+                                        </div>
+                                        <div className="flex gap-4 min-w-[35vw] max-md:flex-col max-md:w-full">
                                             <FormInput
                                                 label={"Common.email"}
                                                 type="email"
                                                 name={"email"}
+                                            />
+                                            <Selection
+                                                options={selectedTime.experts.map(
+                                                    (x) => ({
+                                                        id: x,
+                                                        name: ExpertNames[x],
+                                                    })
+                                                )}
+                                                label="Common.expert"
+                                                required
                                             />
                                         </div>
                                         <button

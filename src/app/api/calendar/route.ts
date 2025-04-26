@@ -1,10 +1,12 @@
+import { ExpertColors, ExpertNames, Experts } from "@/constants/constants";
 import { calendar_v3, google } from "googleapis";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
-        const { name, email, phone, startDateTime, endDateTime } = body;
+        const { name, email, phone, startDateTime, endDateTime, expertId } =
+            body;
 
         const credentials = JSON.parse(
             process.env.GOOGLE_CALENDAR_CREDENTIALS ?? ""
@@ -34,7 +36,8 @@ export async function POST(req: NextRequest) {
             calendar,
             calendarId,
             startDateTime,
-            endDateTime
+            endDateTime,
+            expertId
         );
         if (!isAvailable) {
             return NextResponse.json(
@@ -44,8 +47,10 @@ export async function POST(req: NextRequest) {
         }
 
         const event = {
-            summary: `Appointment with ${name}`,
-            description: `- Booked by: ${name}\n- Phone: ${phone}\n- Email: ${email}`,
+            summary: `ONLINE: ${name}`,
+            description: `- Booked by: ${name}\n- Book to: ${
+                ExpertNames[expertId as Experts]
+            }\n- Phone: ${phone}\n- Email: ${email}`,
             start: {
                 dateTime: new Date(`${startDateTime}`).toISOString(),
                 timeZone: "Europe/Istanbul",
@@ -54,6 +59,12 @@ export async function POST(req: NextRequest) {
                 dateTime: new Date(`${endDateTime}`).toISOString(),
                 timeZone: "Europe/Istanbul",
             },
+            colorId:
+                +expertId === Experts.GULCE
+                    ? "10"
+                    : +expertId === Experts.TUGCE
+                    ? "2"
+                    : "0",
         };
 
         await calendar.events.insert({
@@ -101,6 +112,7 @@ export async function GET() {
         const events = (response.data.items || []).map((event) => ({
             start: event.start?.dateTime,
             end: event.end?.dateTime,
+            expertId: ExpertColors[event.colorId || "0"],
         }));
 
         return NextResponse.json({ events });
@@ -116,7 +128,8 @@ async function checkAvailability(
     calendar: calendar_v3.Calendar,
     calendarId: string | undefined,
     startDateTime: string,
-    endDateTime: string
+    endDateTime: string,
+    expertId: Experts
 ) {
     try {
         const events = await calendar.events.list({
@@ -128,7 +141,9 @@ async function checkAvailability(
         });
 
         for (const event of events.data.items || []) {
+            if (ExpertColors[event.colorId || 0] !== +expertId) continue;
             if (!event.start?.dateTime || !event.end?.dateTime) continue;
+
             const eventStart = new Date(event.start.dateTime);
             const eventEnd = new Date(event.end.dateTime);
 

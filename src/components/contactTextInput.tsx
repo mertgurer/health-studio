@@ -27,6 +27,7 @@ function ContactTextInput({
                     {t(label)} {required && "*"}
                 </label>
             )}
+
             <input
                 name={name}
                 type={type}
@@ -35,6 +36,7 @@ function ContactTextInput({
                 }
                 className="px-4 py-1 w-full rounded-sm bg-transparent border-b-2 border-secondary text-lg 
                  placeholder:text-black/70 placeholder:font-light focus:px-7 duration-500 max-2xl:text-sm max-2xl:focus:px-6"
+                maxLength={type === "phone" ? 17 : 100}
             />
         </div>
     );

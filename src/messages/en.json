@@ -39,7 +39,9 @@
         "reserveForm": "Appointment Form",
         "invalidEmail": "Please enter a valid email address.",
         "message": "Your Message",
-        "send": "Send Message"
+        "send": "Send Message",
+        "expert": "Available Experts",
+        "choose": "Choose"
     },
     "Navbar": {
         "bookAppointment": "Booking",
@@ -54,65 +56,12 @@
     "About": {
         "subtitle": "Who We Are",
         "title": "About Us",
-        "p1": "BASE ON is a center offering personalized treatment and exercise programs with an expert team in physiotherapy and exercise. We aim to support your body in the best way with manual therapy, orthopedic rehabilitation, athlete rehabilitation, return to sports, spine health, posture training, and clinical pilates programs.",
-        "p2": "Our goal is to improve the quality of life of our clients and provide sustainable health solutions with scientific and evidence-based physiotherapy methods. With our personalized therapy and exercise plans, we work to manage your pain, prevent injuries, and help you achieve a stronger body.",
-        "p3": "We add the BASE ON touch to your health with a professional approach in a friendly environment!",
-        "p4": "Meet us to discover the freedom of movement.",
-        "ourExperts": "Our Experts",
-        "gulceInfo": "Completed her undergraduate education at Yeditepe University, Department of Physiotherapy and Rehabilitation. After graduation, she started her master's program at Yeditepe University and completed her specialization in 2024 with a thesis on patients with low back pain. She received professional training in mobilization techniques, manual therapy techniques, clinical pilates, and athlete rehabilitation, applying these skills in her clinical practice. With the aim of bringing her knowledge and experience to a wider audience and offering professional service, she became one of the co-founders of BASE ON. She continues to provide holistic services in areas such as manual therapy, orthopedic rehabilitation, athlete rehabilitation, return to sports, spine health, and clinical pilates.",
-        "gulceTitle": "Specialist Physiotherapist - Co-founder",
-        "tugceInfo": "Completed her undergraduate education at Bahçeşehir University, Department of Physical Therapy and Rehabilitation. Part of her physiotherapy training was completed in Germany at PhysioCum Laude. She received training in manual therapy, lymph drainage, and neurological approaches in Germany. Later, she started studying Chiropractic at Bahçeşehir University and successfully applied the skills and education she received into clinical practice. She has gained broad practical knowledge by working in fields like spine health, orthopedic rehabilitation, and athlete rehabilitation. With her expertise, she aimed to provide professional healthcare services to a wider audience and became one of the co-founders of BASE ON. Here, she offers comprehensive treatment approaches in various fields such as manual therapy, orthopedic rehabilitation, athlete rehabilitation, return to sports, spine health, and clinical pilates.",
-        "tugceTitle": "Physiotherapist - Co-founder"
+        "ourExperts": "Our Experts"
     },
     "Services": {
         "subtitle": "What We Do",
         "title": "Our Services",
-        "motto": "High-quality and experienced therapy tailored to your needs",
-        "ManuelTherapy": {
-            "title": "Manual Therapy",
-            "info": "We reduce pain and improve mobility with hands-on techniques.",
-            "description": "At BASE ON, our manual therapy service uses various hands-on techniques to treat musculoskeletal disorders and correct dysfunctions. Our expert physiotherapists guide the treatment process using evidence-based methods such as deep tissue massage, joint mobilization, myofascial release, and functional movement techniques. These techniques aim to increase mobility, relieve pain, and support functional recovery. By adopting a personalized approach, we create treatment plans tailored to each individual's needs for faster recovery."
-        },
-        "ClinicalPilates": {
-            "title": "Clinical Pilates",
-            "info": "We improve posture and mobility with personalized exercises.",
-            "description": "At BASE ON, our clinical pilates service provides effective and personalized exercise programs aimed at resolving musculoskeletal issues. We focus on improving posture, correcting muscle imbalances, and enhancing movement abilities. Clinical pilates is a specially designed approach to reduce pain, increase flexibility, and ensure body balance. With exercises suitable for all levels and guided by expert therapists, we increase muscle strength, enhance joint mobility, and help individuals return to daily activities in a healthier way."
-        },
-        "OrthopedicRehabilitation": {
-            "title": "Orthopedic Rehabilitation",
-            "info": "We address musculoskeletal problems and ensure functional recovery.",
-            "description": "At BASE ON, our orthopedic rehabilitation service adopts a holistic approach to musculoskeletal disorders. We create personalized treatment programs to address pain and limited mobility caused by injuries. The treatment process focuses on pain management, restoration of functional movements, and rebalancing of the musculoskeletal system. Through modern rehabilitation techniques and tailored exercises, we support the body's natural healing process, helping patients return to daily life in a healthy way."
-        },
-        "AthleteRehabilitation": {
-            "title": "Athlete Rehabilitation",
-            "info": "We treat sports injuries and restore performance.",
-            "description": "At BASE ON, our athlete rehabilitation service takes a holistic approach to treating sports-related injuries. We evaluate each athlete individually to identify the type and severity of their injury. To accelerate recovery and facilitate a return to the field, we use scientifically based treatment methods and specialized exercise programs. We offer therapies and exercises aimed at pain management, increasing muscle strength, enhancing flexibility, and developing functional movement. We aim to maximize our athletes' physical health and ensure a safe return to sports. We also develop long-term preventive strategies to avoid future injuries."
-        },
-        "PersonalExercise": {
-            "title": "Personal Exercise",
-            "info": "We strengthen the musculoskeletal system with tailored programs.",
-            "description": "Every individual has a different physical structure, movement capacity, and goals. At BASE ON, we conduct detailed evaluations of posture, muscle imbalances, and mobility limitations to create personalized exercise programs. These programs support the rehabilitation process and aim to strengthen the musculoskeletal system for pain-free and comfortable daily activities."
-        },
-        "ReturnToSports": {
-            "title": "Return to Sports",
-            "info": "We implement safe and effective return-to-sport programs.",
-            "description": "At BASE ON, we use scientifically based rehabilitation approaches to ensure athletes return to sports safely and effectively. We evaluate performance levels, injury risk factors, and the healing process for each athlete. While supporting the repair of injured tissue, we minimize the risk of re-injury through sport-specific protective exercise programs. We aim to enhance the athlete’s physical abilities for a strong and safe return."
-        },
-        "PostureAnalysis": {
-            "title": "Posture Analysis and Training",
-            "info": "We correct posture disorders and teach proper body mechanics.",
-            "description": "Posture analysis is a detailed assessment method to detect posture disorders and determine the negative loads on the musculoskeletal system. Based on evaluation results, personalized posture exercises, ergonomic adjustments, and awareness training are provided to help individuals use body mechanics effectively and prevent future problems."
-        },
-        "Recovery": {
-            "title": "Recovery",
-            "info": "We accelerate post-workout recovery and boost performance.",
-            "description": "After intense workouts, muscle fatigue and stiffness can reduce an athlete’s movement efficiency. At BASE ON, we promote muscle relaxation, circulation, and natural recovery through personalized applications. This allows athletes to recover quickly after training or competition and maintain peak performance."
-        },
-        "CorporateConsulting": {
-            "title": "Corporate Consulting",
-            "info": "We create healthy workplaces with ergonomic solutions.",
-            "description": "Our corporate consulting service aims to offer ergonomic and physiotherapy solutions tailored to each workplace and industry. We assess employee posture, movement habits, and occupational risk factors, providing services like ergonomic training, desk exercises, biomechanical analysis for athletes, and functional movement assessments. This helps build healthy and sustainable work environments at both individual and corporate levels."
-        }
+        "motto": "High-quality and experienced therapy tailored to your needs"
     },
     "Appointment": {
         "subtitle": "Book a Spot",
@@ -121,9 +70,10 @@
         "loading": "Booking appointment.",
         "Error": {
             "notLoaded": "Appointment times could not be loaded. Please try again later.",
-            "timeSlotNotAvailable": "This time slot is already taken. Please choose another time.",
+            "timeSlotNotAvailable": "This time slot is already full for this expert. Please choose another time.",
             "monthLimit": "Appointments can only be booked up to one month in advance.",
-            "failed": "The appointment booking process failed. Please try again later."
+            "failed": "The appointment booking process failed. Please try again later.",
+            "fillAllFields": "Please fill in all mandatory fields."
         },
         "Success": {
             "created": "The appointment was successfully created. You will be contacted via the phone number you provided for confirmation."

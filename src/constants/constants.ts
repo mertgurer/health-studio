@@ -11,3 +11,20 @@ export const days = [
     "saturday",
     "sunday",
 ];
+
+export enum Experts {
+    GULCE = 0,
+    TUGCE = 1,
+}
+
+export const ExpertNames: Record<Experts, string> = {
+    [Experts.GULCE]: "Gülce Şevval Bağcıbaşı",
+    [Experts.TUGCE]: "Tuğçe Yurdakul",
+};
+
+export const ExpertColors: Record<string, Experts> = {
+    3: Experts.GULCE,
+    10: Experts.GULCE,
+    9: Experts.TUGCE,
+    2: Experts.TUGCE,
+};

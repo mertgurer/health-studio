@@ -23,11 +23,21 @@ function FormTextInput({
             <label className="text-sm font-medium ml-1">
                 {t(label)} {required && "*"}
             </label>
-            <input
-                name={name}
-                type={type}
-                className="px-4 py-2 w-full rounded-sm"
-            />
+            <div className="flex items-center relative w-full">
+                {type === "tel" && (
+                    <p className="flex items-center h-full px-2 bg-tertiary">
+                        +90
+                    </p>
+                )}
+                <input
+                    name={name}
+                    type={type}
+                    className={`py-2 w-full rounded-sm bg-tertiary ${
+                        type === "tel" ? "pr-4" : "px-4"
+                    }`}
+                    maxLength={type === "tel" ? 13 : 40}
+                />
+            </div>
         </div>
     );
 }

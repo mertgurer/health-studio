@@ -39,7 +39,9 @@
         "reserveForm": "Randevu Formu",
         "invalidEmail": "Lütfen geçerli bir e-posta adresi giriniz.",
         "message": "Mesajınız",
-        "send": "Mesajı İlet"
+        "send": "Mesajı İlet",
+        "expert": "Müsait Uzmanlar",
+        "choose": "Seç"
     },
     "Navbar": {
         "bookAppointment": "Randevu Al",
@@ -54,65 +56,12 @@
     "About": {
         "subtitle": "Biz Kimiz",
         "title": "Hakkımızda",
-        "p1": "BASE ON, fizyoterapi ve egzersiz alanında uzman ekibimizle, bireysel ihtiyaçlara yönelik özel tedavi ve egzersiz programları sunan bir merkezdir. Manuel terapi, ortopedik rehabilitasyon, sporcu rehabilitasyonu, spora dönüş, omurga sağlığı, postür eğitimi ve klinik pilates programlarıyla vücudunuzu en iyi şekilde desteklemeyi hedefliyoruz.",
-        "p2": "Amacımız, bilimsel ve kanıta dayalı fizyoterapi yöntemleriyle danışanlarımızın yaşam kalitesini artırmak ve onlara sürdürülebilir sağlık çözümleri sunmaktır. Kişiye özel planladığımız terapi ve egzersiz programlarımızla, ağrılarınızı yönetmek, sakatlıkları önlemek ve daha güçlü bir vücuda sahip olmanızı sağlamak için çalışıyoruz.",
-        "p3": "Samimi bir ortamda, profesyonel bir yaklaşımla sağlığınıza BASE ON dokunuşunu katıyoruz!",
-        "p4": "Siz de hareketin özgürlüğünü keşfetmek için bizimle tanışın.",
-        "ourExperts": "Uzmanlarımız",
-        "gulceInfo": "Lisans eğitimini Yeditepe Üniversitesi Fizyoterapi ve Rehabilitasyon Bölümü'nde tamamlamıştır. Mezuniyetinin ardından Yeditepe Üniversitesi Fizyoterapi ve Rehabilitasyon Yüksek Lisans Programı’na başlamış ve bel ağrılı hastalar üzerine gerçekleştirdiği tez çalışmasıyla 2024 yılında uzmanlığını tamamlamıştır. Mobilizasyon teknikleri, manuel terapi teknikleri, klinik pilates, sporcu rehabilitasyonu gibi alanlarda mesleki eğitimler almış ve bu becerilerini klinik pratiğinde uygulamıştır. Edindiği bilgi ve deneyimleri daha geniş bir kitleyle buluşturmak ve profesyonel bir hizmet sunmak amacıyla BASE ON’un kurucu ortaklarından biri olmuştur. Burada, manuel terapi, ortopedik rehabilitasyon, sporcu rehabilitasyonu, spora dönüş, omurga sağlığı ve klinik pilates gibi birçok alanda bütüncül bir yaklaşımla hizmet sunmaya devam etmektedir.",
-        "gulceTitle": "Uzman Fizyoterapist - Kurucu Ortak",
-        "tugceInfo": "Lisans eğitimini Bahçeşehir Üniversitesi Fizik Tedavi ve Rehabilitasyon Bölümü’nde tamamlamıştır. Fizyoterapi lisans eğitiminin bir kısmını Almanya’da PhysioCum Laude’de tamamlamıştır. Almanya’da manuel terapi, lenf drenaj, nörolojik yaklaşımlar üzerine eğitimler almıştır. Ardından Bahçeşehir Üniversitesi Kayropraktik Bölümü’ne başlamış, almış olduğu eğitim ve becerilerini klinik pratiğinde başarıyla uygulamıştır. Omurga sağlığı, ortopedik rehabilitasyon, sporcu rehabilitasyonu gibi alanlarda çalışarak geniş bir pratik bilgiye sahip olmuştur. Elde ettiği uzmanlıkla, daha geniş bir kitleye profesyonel sağlık hizmeti sunmayı hedefleyerek BASE ON’un kurucu ortaklarından biri olmuştur. Burada, manuel terapi, ortopedik rehabilitasyon, sporcu rehabilitasyonu, spora geri dönüş, omurga sağlığı, klinik pilates gibi çeşitli alanlarda kapsamlı bir tedavi yaklaşımı sunmaktadır.",
-        "tugceTitle": "Fizyoterapist - Kurucu Ortak"
+        "ourExperts": "Uzmanlarımız"
     },
     "Services": {
         "subtitle": "Neler Yapıyoruz",
         "title": "Hizmetlerimiz",
-        "motto": "İhtiyaca göre kaliteli ve deneyimli terapi hizmeti",
-        "ManuelTherapy": {
-            "title": "Manuel Terapi",
-            "info": "Elle uygulanan tedavi teknikleriyle ağrıyı azaltır, hareket kabiliyetini artırırız.",
-            "description": "BASE ON olarak, manuel terapi hizmetimizde, kas-iskelet sistemi rahatsızlıklarını tedavi etmek ve işlev bozukluklarını düzeltmek için elle uygulanan çeşitli teknikler kullanıyoruz. Uzman fizyoterapistlerimiz, derin doku masajı, eklem mobilizasyonu, miyofasyal gevşetme ve fonksiyonel hareket teknikleri gibi kanıta dayalı yöntemlerle tedavi sürecini yönlendirir. Bu tedavi teknikleri, hareketliliği artırmayı, ağrıyı hafifletmeyi ve fonksiyonel iyileşmeyi desteklemeyi hedefler. Kişiye özel bir yaklaşım benimseyerek, her bireyin ihtiyaçlarına uygun tedavi planları oluşturur ve hızlı iyileşme sağlarız."
-        },
-        "ClinicalPilates": {
-            "title": "Klinik Pilates",
-            "info": "Kişiye özel egzersizlerle postür ve hareket kabiliyetini geliştiririz.",
-            "description": "BASE ON'da, klinik pilates hizmetimizde, kas-iskelet sistemi sorunlarını çözmeye yönelik etkili ve kişiye özel egzersiz programları sunuyoruz. Bireylerin postürünü iyileştirmeye, kas dengesizliklerini gidermeye ve hareket kabiliyetlerini artırmaya odaklanıyoruz. Klinik pilates, ağrıyı azaltmak, esnekliği artırmak ve vücudun güç dengesini sağlamak için özel olarak tasarlanmış bir yaklaşımdır. Uzman terapistlerimiz eşliğinde, her seviyeye uygun egzersizlerle kas gücünü artırıyor, eklem hareketliliğini geliştiriyor ve günlük yaşam aktivitelerine daha sağlıklı bir şekilde dönüş sağlıyoruz."
-        },
-        "OrthopedicRehabilitation": {
-            "title": "Ortopedik Rehabilitasyon",
-            "info": "Kas-iskelet sistemi problemlerini çözer, fonksiyonel iyileşmeyi sağlarız.",
-            "description": "BASE ON olarak, ortopedik rehabilitasyon hizmetimizde, kas-iskelet sistemi rahatsızlıklarına yönelik bütünsel bir yaklaşım benimsiyoruz. Yaralanmalar sonucu ortaya çıkan ağrı ve hareket kısıtlılıklarını gidermek için kişiye özel tedavi programları oluşturuyoruz. Tedavi sürecinde, ağrı yönetimi, fonksiyonel hareketlerin geri kazandırılması ve kas-iskelet sistemi dengesinin yeniden sağlanması hedeflenir. Modern rehabilitasyon yöntemleri ve bireye uygun egzersizlerle, vücudun doğal iyileşme sürecini destekliyor, hastalarımızın sağlıklı bir şekilde günlük aktivitelerine ve yaşamlarına geri dönmelerini sağlıyoruz."
-        },
-        "AthleteRehabilitation": {
-            "title": "Sporcu Rehabilitasyonu",
-            "info": "Spor yaralanmalarını tedavi eder, performansı yeniden kazandırırız.",
-            "description": "BASE ON olarak, sporcu rehabilitasyonu hizmetimizde, sporcuların yaşadığı yaralanmaların tedavisinde bütünsel bir yaklaşım benimsemekteyiz. Her sporcuya özgü bir değerlendirme yaparak, yaralanmaların türünü ve şiddetini belirliyoruz. İyileşme sürecini hızlandırmak ve sporcunun tekrar sahaya dönmesini sağlamak için bilimsel temelli tedavi yöntemleri ve özel egzersiz programları kullanıyoruz. Bu süreçte, ağrı yönetimi, kas kuvveti artırımı, esneklik ve fonksiyonel hareket kabiliyeti geliştirmeye yönelik terapi ve egzersizler sunuyoruz. Sporcularımızın fiziksel sağlıklarını en üst düzeye çıkararak, tekrar güvenli bir şekilde spora dönmelerini sağlıyoruz. Ayrıca, gelecekteki yaralanmaları önlemek için uzun vadeli koruyucu stratejiler de oluşturuyoruz."
-        },
-        "PersonalExercise": {
-            "title": "Bireysel Egzersiz",
-            "info": "Kişiye özel programlarla kas-iskelet sistemini güçlendiririz.",
-            "description": "Her bireyin fiziksel yapısı, hareket kapasitesi ve hedefleri farklıdır. BASE ON'da, kişinin postürü, kas dengesizlikleri ve hareket kısıtlılıkları detaylı olarak değerlendirildikten sonra, kişiye özel egzersiz programları oluşturulur. Bireysel egzersiz programları, rehabilitasyon sürecini desteklemenin yanı sıra, günlük yaşam aktivitelerini daha rahat ve ağrısız sürdürebilmek için kas-iskelet sistemini güçlendirmeyi amaçlar."
-        },
-        "ReturnToSports": {
-            "title": "Spora Dönüş",
-            "info": "Güvenli ve etkili spora dönüş programları uygularız.",
-            "description": "BASE ON olarak, spora dönüş sürecinde bilimsel temelli rehabilitasyon yaklaşımlarıyla sporcuların güvenli ve etkili bir şekilde sahalara dönmesini sağlıyoruz. Sporcuya özel değerlendirmeler yaparak performans seviyesini, yaralanma risk faktörlerini ve iyileşme sürecini analiz ediyoruz. Yaralanan dokunun en hızlı şekilde onarılmasını desteklerken, branşa özel koruyucu egzersiz programları ile yeniden sakatlanma riskini en aza indiriyoruz. Sporcunun fiziksel yeterliliklerini geliştirerek, güvenli ve güçlü bir dönüş yapmasını hedefliyoruz."
-        },
-        "PostureAnalysis": {
-            "title": "Postür Analizi ve Eğitimi",
-            "info": "Duruş bozukluklarını düzeltir, doğru vücut mekaniğini öğretiriz.",
-            "description": "Postür analizi, bireyin duruş bozukluklarını tespit etmek ve kas-iskelet sistemi üzerindeki olumsuz yükleri belirlemek için yapılan detaylı bir değerlendirme yöntemidir. Değerlendirme sonuçlarına göre kişiye özel postür egzersizleri, ergonomik düzenlemeler ve bilinçlendirme eğitimleri sunularak, vücut mekaniğinin en iyi şekilde kullanılmasına yardımcı olunur bununla beraber oluşabilecek problemlerin önüne geçilir."
-        },
-        "Recovery": {
-            "title": "Recovery",
-            "info": "Antrenman sonrası toparlanmayı hızlandırır, performansı artırırız.",
-            "description": "Yoğun antrenman sonrası vücutta oluşan kas yorgunluğu ve sertlik, sporcunun hareket verimliliğini düşürebilir. BASE ON'da, kişiye özel uygulamalarla kasların gevşemesini, dolaşımın desteklenmesini ve vücudun doğal iyileşme sürecinin hızlanmasını sağlıyoruz. Bu sayede sporcular antrenman ya da müsabaka sonrasında daha hızlı yenilenerek performanslarını en üst seviyede sürdürebilir."
-        },
-        "CorporateConsulting": {
-            "title": "Kurumsal Danışmanlık",
-            "info": "Ergonomik çözümlerle sağlıklı çalışma ortamları oluştururuz.",
-            "description": "Kurumsal danışmanlık hizmetimiz, her çalışma ortamına ve sektöre uygun ergonomik ve fizyoterapi çözümleri sunmayı amaçlamaktadır. Çalışanların postür, hareket alışkanlıkları ve mesleki risk faktörleri değerlendirilerek, ergonomi eğitimleri, masa başı egzersiz programları, sporculara yönelik biyomekanik analizler ve fonksiyonel hareket değerlendirmeleri gibi hizmetler sunulmaktadır. Bu sayede, hem bireysel hem de kurumsal düzeyde sağlıklı ve sürdürülebilir çalışma ortamları oluşturulması hedeflenmektedir."
-        }
+        "motto": "İhtiyaca göre kaliteli ve deneyimli terapi hizmeti"
     },
     "Appointment": {
         "subtitle": "Yer Ayırın",
@@ -121,9 +70,10 @@
         "loading": "Randevu alınıyor.",
         "Error": {
             "notLoaded": "Randevu saatleri yüklenemedi. Lütfen daha sonra tekrar deneyiniz.",
-            "timeSlotNotAvailable": "Bu saat aralığı zaten dolu. Lütfen başka bir saat seçiniz.",
+            "timeSlotNotAvailable": "Bu saat aralığı bu uzmanımız için zaten dolu. Lütfen başka bir saat seçiniz.",
             "monthLimit": "Randevular en fazla bir ay önceden alınabilir.",
-            "failed": "Randevu alma işlemi başarısız oldu. Lütfen daha sonra tekrar deneyiniz."
+            "failed": "Randevu alma işlemi başarısız oldu. Lütfen daha sonra tekrar deneyiniz.",
+            "fillAllFields": "Lütfen tüm zorunlu alanları doldurun."
         },
         "Success": {
             "created": "Randevu başarıyla oluşturuldu. Teyit için telefon numaranızdan size ulaşılacaktır."
