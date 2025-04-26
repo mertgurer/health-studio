@@ -295,6 +295,13 @@ function BookAppointment({
                 );
                 date.setHours(startHour, 0, 0, 0);
 
+                const isSameDay =
+                  date.getFullYear() === todayValue.getFullYear() &&
+                  date.getMonth() === todayValue.getMonth() &&
+                  date.getDate() === todayValue.getDate();
+
+                const isBeforeNoon = date.getHours() <= 12;
+
                 const threeHoursFromNow = new Date(
                   todayValue.getTime() + 3 * 60 * 60 * 1000
                 );
@@ -310,7 +317,9 @@ function BookAppointment({
 
                 if (reservations) {
                   isPastOrFuture =
-                    date < threeHoursFromNow || date > oneMonthFromNow;
+                    (isSameDay && isBeforeNoon) ||
+                    date < threeHoursFromNow ||
+                    date > oneMonthFromNow;
 
                   const matchingReservations = reservations.filter(
                     (reservation) =>
