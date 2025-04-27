@@ -39,6 +39,7 @@ function Contact({ email, phone, address, socials }: Props) {
         }
 
         if (!customerName || !phone || !message) {
+            toast.error(t("Appointment.Error.fillAllFields"));
             return;
         }
 
@@ -62,6 +63,7 @@ function Contact({ email, phone, address, socials }: Props) {
                     const formElement = document.getElementById(
                         "contact-form"
                     ) as HTMLFormElement;
+
                     if (formElement) {
                         formElement.reset();
                     }
@@ -69,7 +71,7 @@ function Contact({ email, phone, address, socials }: Props) {
                 {
                     loading: t("Contact.loading"),
                     success: t("Contact.Success.sent"),
-                    error: (err) => t("Contact.Error.failed") + err,
+                    error: (err) => t("Contact.Error.failed"),
                 }
             );
         } catch (err) {

@@ -8,15 +8,7 @@ export interface Social {
     isActive: boolean;
 }
 
-interface CreateSocial {}
-
-interface UpdateSocial {}
-
-export class SocialService extends FirebaseBaseService<
-    Social,
-    CreateSocial,
-    UpdateSocial
-> {
+export class SocialService extends FirebaseBaseService<Social> {
     constructor() {
         super("Social");
     }

@@ -5,15 +5,7 @@ interface Info {
     [key: string]: any;
 }
 
-interface CreateInfo {}
-
-interface UpdateInfo {}
-
-export class InfoService extends FirebaseBaseService<
-    Info,
-    CreateInfo,
-    UpdateInfo
-> {
+export class InfoService extends FirebaseBaseService<Info> {
     constructor() {
         super("Info");
     }

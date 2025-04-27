@@ -1,7 +1,7 @@
 import { IconSvgElement } from "@hugeicons/react";
 import { FirebaseBaseService } from "./FirebaseBaseService";
 
-interface Service {
+export interface Service {
     id: string;
     index: number;
     isActive: boolean;
@@ -17,10 +17,6 @@ interface Service {
     };
 }
 
-interface CreateService {}
-
-interface UpdateService {}
-
 export interface ServiceInfo {
     title: string;
     info: string;
@@ -28,11 +24,7 @@ export interface ServiceInfo {
     icon: IconSvgElement;
 }
 
-export class ServiceService extends FirebaseBaseService<
-    Service,
-    CreateService,
-    UpdateService
-> {
+export class ServiceService extends FirebaseBaseService<Service> {
     constructor() {
         super("Service");
     }
