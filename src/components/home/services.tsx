@@ -5,7 +5,7 @@ import ServiceFrames from "../serviceFrames";
 import { ServiceIcon } from "@/data/serviceData";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion, useDragControls } from "motion/react";
-import { HugeiconsIcon, IconSvgElement } from "@hugeicons/react";
+import { HugeiconsIcon } from "@hugeicons/react";
 import {
     ArrowLeft01Icon,
     ArrowRight01Icon,

@@ -10,7 +10,6 @@ import { ArrowDown04Icon, Yoga03Icon } from "@hugeicons/core-free-icons";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useLenis } from "lenis/react";
 import { useScreenSize } from "@/hooks/useScreenSize";
-
 import Logo from "../../../public/assets/images/logo_text.png";
 import { StorageService } from "@/services/StorageService";
 
@@ -64,22 +63,27 @@ function Welcome() {
                 ref={emblaRef}
             >
                 <div className="flex h-full">
-                    {Array.from({ length: 3 }, (_, index) => (
-                        <div
-                            key={index}
-                            className="flex-[0_0_100%] min-w-0 relative"
-                        >
-                            <Image
-                                src={StorageService.getImage(
-                                    `welcome_${index + 1}`
-                                )}
-                                alt={"welcome image"}
-                                fill
-                                sizes="100%"
-                                className="object-cover max-md:object-fill"
-                            />
-                        </div>
-                    ))}
+                    {Array.from({ length: 3 }, (_, index) => {
+                        const imageUrl = StorageService.getImage(
+                            `welcome_${index + 1}`
+                        );
+
+                        return (
+                            <div
+                                key={index}
+                                className="flex-[0_0_100%] min-w-0 relative"
+                            >
+                                <Image
+                                    src={imageUrl}
+                                    alt={"welcome image"}
+                                    fill
+                                    sizes="100%"
+                                    className="object-cover max-md:object-fill"
+                                    priority
+                                />
+                            </div>
+                        );
+                    })}
                 </div>
             </motion.div>
             {isMobile && (
