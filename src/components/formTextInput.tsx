@@ -54,7 +54,6 @@ function FormTextInput({
                             icon={hidden ? ViewIcon : ViewOffIcon}
                             size={20}
                             strokeWidth={1.5}
-                            className="rotate-180"
                         />
                     </button>
                 )}
