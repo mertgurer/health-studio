@@ -41,7 +41,8 @@
         "message": "Mesajınız",
         "send": "Mesajı İlet",
         "expert": "Müsait Uzmanlar",
-        "choose": "Seç"
+        "choose": "Seç",
+        "password": "Şifre"
     },
     "Navbar": {
         "bookAppointment": "Randevu Al",
@@ -90,6 +91,16 @@
         },
         "Success": {
             "sent": "Mesajınız başarıyla gönderildi. En kısa sürede size ulaşacağız."
+        }
+    },
+    "Login": {
+        "login": "Giriş Yap",
+        "loading": "Giriş yapılıyor.",
+        "Error": {
+            "invalidCredentials": "Geçersiz e-posta adresi veya şifre."
+        },
+        "Success": {
+            "loggedIn": "Başarıyla giriş yapıldı."
         }
     }
 }

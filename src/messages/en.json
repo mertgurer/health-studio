@@ -41,7 +41,8 @@
         "message": "Your Message",
         "send": "Send Message",
         "expert": "Available Experts",
-        "choose": "Choose"
+        "choose": "Choose",
+        "password": "Password"
     },
     "Navbar": {
         "bookAppointment": "Booking",
@@ -90,6 +91,16 @@
         },
         "Success": {
             "sent": "Your message has been sent successfully. We will contact you shortly."
+        }
+    },
+    "Login": {
+        "login": "Log In",
+        "loading": "Logging in.",
+        "Error": {
+            "invalidCredentials": "Invalid email or password."
+        },
+        "Success": {
+            "loggedIn": "Logged in successfully."
         }
     }
 }

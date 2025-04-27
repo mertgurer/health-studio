@@ -11,6 +11,7 @@ import { Toaster } from "react-hot-toast";
 import ReactLenis from "lenis/react";
 import { fetchFromApi } from "@/lib/fetchFromApi";
 import { Social } from "@/services/SocialService";
+import { headers } from "next/headers";
 
 const montserrat = Nunito({
     subsets: ["latin"],
@@ -34,6 +35,10 @@ export default async function RootLayout({
     params: { locale: string };
 }) {
     const messages = await getMessages();
+    const headersList = headers();
+
+    const header_url = headersList.get("x-url") || "";
+    const isAdminPanel = header_url.startsWith("/admin-dashboard");
 
     const socials = await fetchFromApi<Social[]>("/social");
 
@@ -46,7 +51,9 @@ export default async function RootLayout({
                             position="top-center"
                             toastOptions={{
                                 style: {
-                                    background: "var(--primary)",
+                                    background: !isAdminPanel
+                                        ? "var(--primary)"
+                                        : "var(--secondary)",
                                     color: "var(--text)",
                                     paddingLeft: "20px",
                                     paddingRight: "20px",
@@ -56,10 +63,14 @@ export default async function RootLayout({
                                 },
                             }}
                         />
-                        <Navbar socials={socials.filter((x) => x.isActive)} />
+                        {!isAdminPanel && (
+                            <Navbar
+                                socials={socials.filter((x) => x.isActive)}
+                            />
+                        )}
                         {children}
-                        <BackToTop />
-                        <Footer />
+                        {!isAdminPanel && <BackToTop />}
+                        {!isAdminPanel && <Footer />}
                     </ReactLenis>
                 </NextIntlClientProvider>
             </body>

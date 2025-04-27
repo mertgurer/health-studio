@@ -1,11 +1,11 @@
-// import { initializeApp } from "firebase/app";
-// import { getFirestore } from "firebase/firestore";
-// import { getDownloadURL, getStorage } from "firebase/storage";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
-// const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG || "");
+const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG || "{}");
 
-// const app = initializeApp(firebaseConfig);
-// const storage = getStorage(app);
-// const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
 
-// export { storage, db, getDownloadURL };
+export { db, auth };
