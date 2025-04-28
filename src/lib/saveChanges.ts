@@ -98,10 +98,22 @@ async function savaChanges(
         };
     });
 
+    // Contact data
+    const addressTr = formData.get("addressTr") as string;
+    const addressEn = formData.get("addressEn") as string;
     const phone = formData.get("phone") as string;
     const email = formData.get("email") as string;
 
-    console.log("About", newSocials);
+    const newContact = {
+        email: email,
+        phone: phone,
+        address: {
+            tr: addressTr,
+            en: addressEn,
+        },
+    };
+
+    console.log("About", newContact);
 }
 
 export default savaChanges;
