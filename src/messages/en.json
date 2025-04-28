@@ -42,7 +42,13 @@
         "send": "Send Message",
         "expert": "Available Experts",
         "choose": "Choose",
-        "password": "Password"
+        "password": "Password",
+        "image": "Image",
+        "index": "Index",
+        "active": "Active",
+        "title": "Title",
+        "url": "URL",
+        "saveChanges": "Save Changes"
     },
     "Navbar": {
         "bookAppointment": "Booking",

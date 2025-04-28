@@ -69,7 +69,7 @@ export default async function RootLayout({
                             />
                         )}
                         {children}
-                        {!isAdminPanel && <BackToTop />}
+                        <BackToTop />
                         {!isAdminPanel && <Footer />}
                     </ReactLenis>
                 </NextIntlClientProvider>

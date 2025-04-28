@@ -42,7 +42,13 @@
         "send": "Mesajı İlet",
         "expert": "Müsait Uzmanlar",
         "choose": "Seç",
-        "password": "Şifre"
+        "password": "Şifre",
+        "image": "Resim",
+        "index": "Sıra",
+        "active": "Aktif",
+        "title": "Başlık",
+        "url": "URL",
+        "saveChanges": "Değişiklikleri Kaydet"
     },
     "Navbar": {
         "bookAppointment": "Randevu Al",

@@ -96,7 +96,7 @@ function Login() {
                 <button
                     type="submit"
                     disabled={loading}
-                    className={`flex items-center justify-center gap-2 bg-secondary px-4 py-2 rounded-sm w-full font-medium disabled:opacity-70 disabled:cursor-not-allowed`}
+                    className={`flex items-center justify-center gap-2 bg-secondary px-4 py-2 rounded-sm w-full font-medium disabled:opacity-50 disabled:cursor-not-allowed`}
                 >
                     {t("Login.login")}
                     <HugeiconsIcon
