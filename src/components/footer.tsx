@@ -26,7 +26,8 @@ function Footer() {
 
         if (newClicks >= 10) {
             if (timer) clearTimeout(timer);
-            router.push("/admin-dashboard");
+            router.replace("/admin-dashboard");
+            router.refresh();
         }
     };
 

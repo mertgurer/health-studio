@@ -66,10 +66,7 @@ function Login() {
 
     return (
         <div className="flex flex-col items-center justify-center gap-16 min-h-screen bg-primary pb-32">
-            <Link
-                href="/"
-                className="relative h-32 aspect-video overflow-hidden max-md:h-28"
-            >
+            <div className="relative h-32 aspect-video overflow-hidden max-md:h-28">
                 <Image
                     src={Logo}
                     alt={"logo"}
@@ -78,7 +75,7 @@ function Login() {
                     sizes="100%"
                     className="object-cover"
                 />
-            </Link>
+            </div>
             <form
                 className="flex flex-col items-center gap-8 w-1/5 max-2xl:w-1/4 max-md:w-[90%]"
                 onSubmit={loginAction}
