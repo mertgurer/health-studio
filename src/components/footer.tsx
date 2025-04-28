@@ -1,16 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../public/assets/images/logo_text.png";
 import LocaleButton from "./localeButton";
 import TurkishFlag from "../../public/assets/images/turkey.png";
 import EnglishFlag from "../../public/assets/images/english.png";
+import { useRouter } from "@/i18n/routing";
 
 function Footer() {
+    const [clicks, setClicks] = useState(0);
+    const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+    const router = useRouter();
+
+    const handleClick = () => {
+        if (clicks === 0) {
+            const newTimer = setTimeout(() => {
+                setClicks(0);
+            }, 5000);
+            setTimer(newTimer);
+        }
+
+        const newClicks = clicks + 1;
+        setClicks(newClicks);
+
+        if (newClicks >= 10) {
+            if (timer) clearTimeout(timer);
+            router.push("/admin-dashboard");
+        }
+    };
+
     return (
         <div className="w-full h-24 flex items-center justify-between px-[10%] bg-secondary max-md:h-32 max-md:flex-col max-md:pb-4 max-md:pt-1">
-            <div className="relative flex h-16 aspect-video rounded-sm overflow-hidden max-2xl:h-16 max-md:h-16">
+            <div
+                className="relative flex h-16 aspect-video rounded-sm overflow-hidden max-2xl:h-16 max-md:h-16"
+                onClick={handleClick}
+            >
                 <Image
                     src={logo}
                     alt={"Logo"}
