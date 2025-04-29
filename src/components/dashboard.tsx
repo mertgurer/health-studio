@@ -6,6 +6,7 @@ import { Service } from "@/services/ServiceService";
 import { Social } from "@/services/SocialService";
 import { useTranslations } from "next-intl";
 import React, { FormEvent } from "react";
+import toast from "react-hot-toast";
 
 interface Props {
     about: { en: string; tr: string };
@@ -33,9 +34,10 @@ function Dashboard({ about, members, contact, socials, services }: Props) {
 
     return (
         <form
-            onSubmit={(e: FormEvent<HTMLFormElement>) =>
-                saveChanges(e, services, socials)
-            }
+            onSubmit={(e: FormEvent<HTMLFormElement>) => {
+                saveChanges(e, services, socials);
+                toast.success(t("Common.changesSaved"));
+            }}
             className="flex flex-col gap-20"
         >
             <button

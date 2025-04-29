@@ -3,6 +3,7 @@ import { FirebaseBaseService } from "./FirebaseBaseService";
 
 export interface Service {
     id: string;
+    serviceId: string;
     index: number;
     isActive: boolean;
     en: {

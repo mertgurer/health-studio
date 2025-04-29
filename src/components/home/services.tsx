@@ -16,7 +16,7 @@ import { ServiceInfo } from "@/services/ServiceService";
 
 interface Props {
     services: {
-        id: string;
+        serviceId: string;
         index: number;
         isActive: boolean;
         title: string;
@@ -39,17 +39,25 @@ function Services({ services }: Props) {
     useEffect(() => {
         const updateWidth = () => {
             var width = 0;
-            const serviceCountRatio = services.length / 8;
+            const serviceCountRatio = (services.length - 4) / 4;
 
             if (isMobile) {
-                width = window.innerWidth * 0.9 * (0.7 * 6.5) * 1.031;
+                width =
+                    window.innerWidth *
+                    0.9 *
+                    (0.7 * 6.5) *
+                    1.031 *
+                    serviceCountRatio;
             } else if (window.innerWidth > ScreenSize.XXL) {
-                width = window.innerWidth * 0.76 * 1.005;
+                width = window.innerWidth * 0.76 * 1.005 * serviceCountRatio;
             } else if (window.innerWidth <= ScreenSize.XXL) {
-                width = window.innerWidth * 0.76 * (5 / 3) * 1.012;
+                width =
+                    window.innerWidth *
+                    0.76 *
+                    (5 / 3) *
+                    1.012 *
+                    serviceCountRatio;
             }
-
-            width *= serviceCountRatio;
 
             setMaxScrollWidth(width);
             setWindowWidth(window.innerWidth);
@@ -126,12 +134,12 @@ function Services({ services }: Props) {
                             .map((service, index) => (
                                 <ServiceFrames
                                     key={service.title}
-                                    id={service.id}
+                                    id={service.serviceId}
                                     data={{
                                         title: service.title,
                                         info: service.info,
                                         description: service.description,
-                                        icon: ServiceIcon[service.id],
+                                        icon: ServiceIcon[service.serviceId],
                                     }}
                                     index={index}
                                     inverse={index % 2 === 1}

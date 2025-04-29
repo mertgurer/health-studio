@@ -1,6 +1,8 @@
 import { Service } from "@/services/ServiceService";
 import { Social } from "@/services/SocialService";
 import { FormEvent } from "react";
+import { putToApi } from "./putToApi";
+import { uploadImage } from "./uploadImage";
 
 async function savaChanges(
     event: FormEvent<HTMLFormElement>,
@@ -69,6 +71,7 @@ async function savaChanges(
 
         return {
             id: service.id,
+            serviceId: service.serviceId,
             index: +index,
             isActive: isActive === "on",
             en: {
@@ -91,6 +94,7 @@ async function savaChanges(
         const isActive = formData.get(`${social.name}-active`) as string;
 
         return {
+            id: social.id,
             name: social.name,
             index: +index,
             isActive: isActive === "on",
@@ -113,7 +117,36 @@ async function savaChanges(
         },
     };
 
-    console.log("About", newContact);
+    putToApi("/info?id=about", newAbout);
+    putToApi("/info?id=contact", newContact);
+    putToApi("/info?id=members", newMembers);
+
+    newSocials.forEach((social) => {
+        const { id, ...socialWithoutId } = social;
+        putToApi(`/social?id=${social.id}`, socialWithoutId);
+    });
+
+    newServices.forEach((service) => {
+        const { id, ...serviceWithoutId } = service;
+        putToApi(`/service?id=${service.id}`, serviceWithoutId);
+    });
+
+    const welcomeImage1 = formData.get("welcomeImage1") as File;
+    const welcomeImage2 = formData.get("welcomeImage2") as File;
+    const welcomeImage3 = formData.get("welcomeImage3") as File;
+    const gulceImage = formData.get("gulceImage") as File;
+    const tugceImage = formData.get("tugceImage") as File;
+
+    if (welcomeImage1.size > 0) uploadImage(welcomeImage1, "welcome_1");
+    if (welcomeImage2.size > 0) uploadImage(welcomeImage1, "welcome_2");
+    if (welcomeImage3.size > 0) uploadImage(welcomeImage1, "welcome_3");
+    if (gulceImage.size > 0) uploadImage(welcomeImage1, "gulce");
+    if (tugceImage.size > 0) uploadImage(welcomeImage1, "tugce");
+
+    services.map((service) => {
+        const serviceImage = formData.get(`${service.id}-image`) as File;
+        if (serviceImage.size > 0) uploadImage(serviceImage, service.serviceId);
+    });
 }
 
 export default savaChanges;

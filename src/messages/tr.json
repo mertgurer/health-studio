@@ -48,7 +48,8 @@
         "active": "Aktif",
         "title": "Başlık",
         "url": "URL",
-        "saveChanges": "Değişiklikleri Kaydet"
+        "saveChanges": "Değişiklikleri Kaydet",
+        "changesSaved": "Değişiklikler başarıyla kaydedildi"
     },
     "Navbar": {
         "bookAppointment": "Randevu Al",

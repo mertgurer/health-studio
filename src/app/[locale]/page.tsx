@@ -79,7 +79,7 @@ export default async function Home({ params }: Props) {
                         const isEn = params.locale === "en";
 
                         return {
-                            id: x.id,
+                            serviceId: x.serviceId,
                             index: x.index,
                             isActive: x.isActive,
                             title: isEn ? x.en.title : x.tr.title,

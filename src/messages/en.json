@@ -48,7 +48,8 @@
         "active": "Active",
         "title": "Title",
         "url": "URL",
-        "saveChanges": "Save Changes"
+        "saveChanges": "Save Changes",
+        "changesSaved": "Changes saved successfully."
     },
     "Navbar": {
         "bookAppointment": "Booking",
