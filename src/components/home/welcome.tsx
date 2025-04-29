@@ -74,7 +74,7 @@ function Welcome() {
                                 className="flex-[0_0_100%] min-w-0 relative"
                             >
                                 <Image
-                                    src={`${imageUrl}?t=${Date.now()}`}
+                                    src={imageUrl}
                                     alt={"welcome image"}
                                     fill
                                     sizes="100%"
