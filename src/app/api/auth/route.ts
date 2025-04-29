@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
             return NextResponse.json(true, { status: 200 });
         }
     } catch (error) {
-        console.error("Token verification error");
+        console.error("Token verification error:", error);
     }
 
     return NextResponse.json(false, { status: 401 });
