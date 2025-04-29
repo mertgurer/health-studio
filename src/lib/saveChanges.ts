@@ -138,10 +138,10 @@ async function savaChanges(
     const tugceImage = formData.get("tugceImage") as File;
 
     if (welcomeImage1.size > 0) uploadImage(welcomeImage1, "welcome_1");
-    if (welcomeImage2.size > 0) uploadImage(welcomeImage1, "welcome_2");
-    if (welcomeImage3.size > 0) uploadImage(welcomeImage1, "welcome_3");
-    if (gulceImage.size > 0) uploadImage(welcomeImage1, "gulce");
-    if (tugceImage.size > 0) uploadImage(welcomeImage1, "tugce");
+    if (welcomeImage2.size > 0) uploadImage(welcomeImage2, "welcome_2");
+    if (welcomeImage3.size > 0) uploadImage(welcomeImage3, "welcome_3");
+    if (gulceImage.size > 0) uploadImage(gulceImage, "gulce");
+    if (tugceImage.size > 0) uploadImage(tugceImage, "tugce");
 
     services.map((service) => {
         const serviceImage = formData.get(`${service.id}-image`) as File;
