@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { storage } from "@/firebase";
-import { ref, uploadBytes } from "firebase/storage";
+import { adminStorage } from "@/lib/firebaseAdmin";
 
 export async function POST(request: NextRequest) {
     const formData = await request.formData();
@@ -13,9 +12,17 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-        const storageRef = ref(storage, `${fileName}.jpg`);
+        const arrayBuffer = await file.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
 
-        await uploadBytes(storageRef, file);
+        const bucket = adminStorage.bucket();
+        const fileRef = bucket.file(`${fileName}.jpg`);
+
+        await fileRef.save(buffer, {
+            metadata: {
+                contentType: "image/jpeg",
+            },
+        });
     } catch (error) {
         console.log("Error uploading image:", error);
         return new NextResponse("Failed to upload image", { status: 500 });

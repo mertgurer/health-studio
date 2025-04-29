@@ -1,5 +1,6 @@
 import { initializeApp, cert, getApps } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import { getStorage } from "firebase-admin/storage";
 
 if (!getApps().length) {
     initializeApp({
@@ -10,7 +11,11 @@ if (!getApps().length) {
                 process.env.FIREBASE_PRIVATE_KEY || ""
             ).privateKey?.replace(/\\n/g, "\n"),
         }),
+        storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     });
 }
 
-export const adminDb = getFirestore();
+const adminDb = getFirestore();
+const adminStorage = getStorage();
+
+export { adminDb, adminStorage };
