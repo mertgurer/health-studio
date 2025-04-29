@@ -40,7 +40,7 @@ function ServiceFrames({
         >
             <div className="relative flex w-full aspect-square rounded-sm overflow-hidden">
                 <Image
-                    src={StorageService.getImage(id)}
+                    src={`${StorageService.getImage(id)}?t=${Date.now()}`}
                     alt={"Logo"}
                     fill
                     sizes="100%"

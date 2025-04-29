@@ -149,7 +149,9 @@ function About({ about, members }: Props) {
                         className="relative w-1/5 aspect-[3/4] rounded-sm overflow-hidden max-2xl:w-1/4 max-2xl:mt-10 max-md:w-[80%] max-md:aspect-square"
                     >
                         <Image
-                            src={StorageService.getImage("gulce")}
+                            src={`${StorageService.getImage(
+                                "gulce"
+                            )}?t=${Date.now()}`}
                             alt={"gulce"}
                             fill
                             sizes="100%"
@@ -196,7 +198,9 @@ function About({ about, members }: Props) {
                                 className="relative rounded-sm overflow-hidden max-md:w-[90%] max-md:self-center max-md:aspect-square"
                             >
                                 <Image
-                                    src={StorageService.getImage("tugce")}
+                                    src={`${StorageService.getImage(
+                                        "tugce"
+                                    )}?t=${Date.now()}`}
                                     alt={"tugce"}
                                     fill
                                     sizes="100%"
@@ -245,7 +249,9 @@ function About({ about, members }: Props) {
                             className="relative w-1/5 aspect-[3/4] rounded-sm overflow-hidden max-2xl:self-end max-2xl:w-1/4 max-2xl:mb-10"
                         >
                             <Image
-                                src={StorageService.getImage("tugce")}
+                                src={`${StorageService.getImage(
+                                    "tugce"
+                                )}?t=${Date.now()}`}
                                 alt={"tugce"}
                                 fill
                                 sizes="100%"
