@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { ServiceService } from "@/services/ServiceService";
 import { NextResponse } from "next/server";
 
