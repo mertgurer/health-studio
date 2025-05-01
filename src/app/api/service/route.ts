@@ -1,4 +1,4 @@
-export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 import { ServiceService } from "@/services/ServiceService";
 import { NextResponse } from "next/server";
