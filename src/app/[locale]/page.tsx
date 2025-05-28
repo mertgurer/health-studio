@@ -60,13 +60,16 @@ export default async function Home({ params }: Props) {
         await fetchFromApi<{
             events: { start: Date; end: Date; expertId: Experts }[];
         }>("/calendar")
-    ).events.map((x) => {
-        return {
-            start: new Date(x.start),
-            end: new Date(x.end),
-            expertId: x.expertId,
-        };
-    });
+    ).events
+        .filter((x) => x && Object.keys(x).length > 0)
+        .map((x) => {
+            console.log("Raw Event:", x);
+            return {
+                start: new Date(x.start),
+                end: new Date(x.end),
+                expertId: x.expertId,
+            };
+        });
 
     return (
         <main>
